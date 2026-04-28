@@ -14,7 +14,7 @@ const titleLines = ["GTA", "STEEL", "CRAFT"];
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-end overflow-hidden bg-steel-black pt-16 text-white">
+    <section className="relative flex min-h-screen overflow-hidden bg-steel-black pt-16 text-white">
       {/* Background grid */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-100">
         <Image
@@ -38,7 +38,7 @@ export default function Hero() {
           y: -8,
           scale: 1.015,
         }}
-        className="group pointer-events-auto absolute right-8 top-28 z-20 hidden w-105 lg:block xl:right-16 xl:w-170"
+        className="group pointer-events-auto absolute right-8 top-28 z-20 hidden w-105 lg:block xl:right-16 xl:w-160"
       >
         {/* Red border accent */}
         <div className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-steel-red" />
@@ -194,12 +194,28 @@ export default function Hero() {
           duration: 0.8,
           delay: 1.5,
         }}
-        className="pointer-events-none absolute bottom-8 left-1/2 z-[30] flex -translate-x-1/2 flex-col items-center gap-2"
+        className="
+    pointer-events-none
+    absolute
+    bottom-6
+    left-1/2
+    z-30
+    hidden
+    -translate-x-1/2
+    flex-col
+    items-center
+    gap-2
+    sm:bottom-8
+    md:flex
+    lg:bottom-12
+    xl:bottom-16
+  "
       >
-        <span className="font-mono text-xs uppercase tracking-widest text-steel-light">
+        <span className="font-mono text-[10px] uppercase tracking-widest text-steel-light sm:text-xs">
           Scroll
         </span>
-        <div className="h-8 w-px animate-pulse bg-steel-red" />
+
+        <div className="h-6 w-px animate-pulse bg-steel-red sm:h-8" />
       </motion.div>
     </section>
   );
