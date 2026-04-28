@@ -81,7 +81,7 @@ function Logo() {
       </motion.div>
 
       <span className="font-clash text-lg font-semibold uppercase tracking-tight text-white">
-        Steel Forge
+        North GTA Steel
       </span>
     </Link>
   );
@@ -146,7 +146,7 @@ export default function Header() {
             >
               <SheetHeader>
                 <SheetTitle className="text-left font-clash uppercase tracking-tight text-white">
-                  Steel Forge
+                  North GTA Steel
                 </SheetTitle>
               </SheetHeader>
 

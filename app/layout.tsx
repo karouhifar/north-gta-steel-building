@@ -4,8 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/ Header";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
 export const metadata: Metadata = {
   title: {
     default:
@@ -25,6 +23,8 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

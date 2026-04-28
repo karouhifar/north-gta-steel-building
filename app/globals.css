@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url("https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -62,7 +63,7 @@
 
   /* Fonts */
   --font-sans: var(--font-general);
-  --font-heading: var(--font-clash);
+  --font-clash: var(--font-clash);
   --font-mono: var(--font-geist-mono);
 
   /* Radius */
