@@ -13,6 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 const navLinks = [
   {
@@ -77,10 +78,11 @@ function Logo() {
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="flex h-8 w-8 items-center justify-center bg-steel-red"
       >
-        <div className="h-0 w-0 rotate-180 border-x-[6px] border-b-10 border-x-transparent border-b-white" />
+        {/* triangle stays white — it sits on the red mark, not the page bg */}
+        <div className="h-0 w-0 rotate-180 border-x-[6px] border-b-[10px] border-x-transparent border-b-white" />
       </motion.div>
 
-      <span className="font-clash text-lg font-semibold uppercase tracking-tight text-white">
+      <span className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground">
         North GTA Steel
       </span>
     </Link>
@@ -93,7 +95,7 @@ export default function Header() {
       variants={headerVariants}
       initial="hidden"
       animate="visible"
-      className="fixed left-0 top-0 z-50 w-full border-b border-steel-mid bg-steel-black/95 backdrop-blur"
+      className="fixed left-0 top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur"
     >
       <nav className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-6 lg:px-12">
         <Logo />
@@ -104,7 +106,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="hover-line relative font-general text-xs uppercase tracking-widest text-steel-light transition-colors hover:text-white"
+              className="hover-line relative font-general text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -113,17 +115,18 @@ export default function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-6 lg:flex">
-          <span className="hidden font-mono text-xs tracking-wide text-steel-light xl:block">
-            1-888-449-7756
+          <span className="hidden font-mono text-xs tracking-wide text-muted-foreground xl:block">
+            1-416-505-1371
           </span>
 
           <Button
             asChild
             variant="default"
-            className="rounded-none px-6 py-3  text-xs font-medium uppercase tracking-widest"
+            className="rounded-none px-6 py-3 text-xs font-medium uppercase tracking-widest"
           >
             <Link href="#quote">Free Estimate</Link>
           </Button>
+          <AnimatedThemeToggler variant="hexagon" duration={600} fromCenter />
         </div>
 
         {/* Mobile menu */}
@@ -133,7 +136,7 @@ export default function Header() {
               <Button
                 size="icon"
                 variant="outline"
-                className="rounded-none border-steel-mid bg-transparent text-white hover:bg-steel-gray hover:text-white"
+                className="rounded-none border-border bg-transparent text-foreground hover:bg-muted hover:text-foreground"
               >
                 <Menu className="size-5" />
                 <span className="sr-only">Open navigation menu</span>
@@ -142,32 +145,32 @@ export default function Header() {
 
             <SheetContent
               side="right"
-              className="border-steel-mid bg-steel-black text-white"
+              className="border-border bg-background text-foreground"
             >
               <SheetHeader>
-                <SheetTitle className="text-left font-clash uppercase tracking-tight text-white">
+                <SheetTitle className="text-left font-clash uppercase tracking-tight text-foreground">
                   North GTA Steel
                 </SheetTitle>
               </SheetHeader>
 
-              <Separator className="my-6 bg-steel-mid" />
+              <Separator className="my-6 bg-border" />
 
               <div className="flex flex-col gap-5">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="font-general text-sm uppercase tracking-widest text-steel-light transition-colors hover:text-white"
+                    className="font-general text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
                   >
                     {link.label}
                   </Link>
                 ))}
               </div>
 
-              <Separator className="my-6 bg-steel-mid" />
+              <Separator className="my-6 bg-border" />
 
               <div className="space-y-4">
-                <p className="font-mono text-xs text-steel-light">
+                <p className="font-mono text-xs text-muted-foreground">
                   1-888-449-7756
                 </p>
 
@@ -177,6 +180,11 @@ export default function Header() {
                 >
                   <Link href="#quote">Free Estimate</Link>
                 </Button>
+                <AnimatedThemeToggler
+                  variant="hexagon"
+                  duration={600}
+                  fromCenter
+                />
               </div>
             </SheetContent>
           </Sheet>
