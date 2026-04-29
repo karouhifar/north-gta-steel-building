@@ -35,7 +35,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-
+```bash
 north-gta-steel-buildings/
 ├── app/
 │   ├── layout.tsx                 # Root layout: html, body, fonts, metadata
@@ -132,3 +132,4 @@ north-gta-steel-buildings/
 ├── tsconfig.json
 ├── package.json
 └── README.md
+```
