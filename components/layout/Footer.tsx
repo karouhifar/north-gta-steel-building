@@ -31,7 +31,7 @@ const contactItems = [
   },
   {
     icon: MapPin,
-    label: "Serving All Canadian Provinces",
+    label: "Serving All Ontario",
   },
 ];
 
@@ -43,7 +43,7 @@ function Logo() {
       </div>
 
       <span className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground">
-        Steel Forge
+        North GTA Steel Buildings
       </span>
     </Link>
   );
@@ -87,9 +87,8 @@ export default function Footer() {
             <Logo />
 
             <p className="mt-6 max-w-sm font-general text-sm leading-relaxed text-steel-light">
-              Canadian steel building experts since 1988. Pre-engineered
-              structures for every application, every province, every climate
-              condition.
+              Ontario's trusted steel building partner for commercial,
+              agricultural, industrial, and custom steel structures.
             </p>
           </div>
 

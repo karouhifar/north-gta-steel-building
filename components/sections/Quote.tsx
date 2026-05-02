@@ -23,17 +23,19 @@ export default function QuoteSection() {
   return (
     <section
       id="quote"
-      className="relative overflow-hidden bg-steel-red py-24 lg:py-32"
+      className="relative overflow-hidden bg-steel-red py-24 lg:py-10 scroll-mt-25"
     >
       {/* Diagonal line pattern */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-10"
         style={{
+          position: "absolute",
+          inset: 0,
           backgroundImage:
-            "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,0,0,0.3) 40px, rgba(0,0,0,0.3) 41px)",
+            "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.2) 41px)",
+          opacity: 1,
+          pointerEvents: "none",
         }}
       />
-
       <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
         <div className="grid grid-cols-12 items-center gap-8">
           {/* Left content */}

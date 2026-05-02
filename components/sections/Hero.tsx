@@ -161,8 +161,8 @@ export default function Hero() {
                     asChild
                     className="h-auto rounded-none bg-foreground px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-background hover:bg-steel-red hover:text-white sm:px-8"
                   >
-                    <Link href="#configure">
-                      Configure Your Build
+                    <Link href="#quote" className="flex items-center">
+                      Get a Free Quote
                       <ArrowRight className="ml-3 size-4" />
                     </Link>
                   </Button>

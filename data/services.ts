@@ -23,7 +23,7 @@ export const services: Service[] = [
     title: "Commercial",
     icon: ServiceIcon.Warehouse,
     description:
-      "Warehouses, distribution centers, retail spaces. Clear spans up to 300 feet. Snow load rated for all Canadian provinces.",
+      "Warehouses, distribution centers, retail spaces, garages and auto shops. Clear spans up to 300 feet. Snow load rated for all Canadian provinces.",
     startingFrom: "FROM 5,000 SQ FT",
   },
   {
