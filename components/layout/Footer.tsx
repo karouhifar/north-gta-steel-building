@@ -87,7 +87,7 @@ export default function Footer() {
             <Logo />
 
             <p className="mt-6 max-w-sm font-general text-sm leading-relaxed text-steel-light">
-              Ontario's trusted steel building partner for commercial,
+              Ontario&apos;s trusted steel building partner for commercial,
               agricultural, industrial, and custom steel structures.
             </p>
           </div>
