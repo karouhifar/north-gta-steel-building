@@ -101,11 +101,12 @@ function AnimatedCities() {
                     position: "absolute",
                     width: 30,
                     height: 30,
-                    border: "2px solid #fff",
+                    border: "2px solid var(--foreground)",
                     borderRadius: "50%",
                     left: -15 + dot / 2,
                     top: -15 + dot / 2,
-                    boxShadow: "0 0 0 1px rgba(255,255,255,0.35)",
+                    boxShadow:
+                      "0 0 0 1px color-mix(in srgb, var(--foreground) 35%, transparent)",
                   }}
                 />
               )}
@@ -113,21 +114,23 @@ function AnimatedCities() {
                 style={{
                   width: dot,
                   height: dot,
-                  background: "#fff",
+                  background: "var(--foreground)",
                   borderRadius: "50%",
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.35)",
+                  boxShadow:
+                    "0 1px 4px color-mix(in srgb, var(--background) 65%, transparent)",
                   flexShrink: 0,
                 }}
               />
               <span
                 style={{
                   marginLeft: 10,
-                  color: "#fff",
+                  color: "var(--foreground)",
                   font: `${highlighted ? 700 : 600} ${
                     highlighted ? 16 : 14
                   }px/1 -apple-system, system-ui, 'Segoe UI', sans-serif`,
                   whiteSpace: "nowrap",
-                  textShadow: "0 1px 3px rgba(0,0,0,0.45)",
+                  textShadow:
+                    "0 1px 3px var(--background), 0 0 8px var(--background)",
                 }}
               >
                 {city.name}
@@ -151,7 +154,7 @@ export default function Map() {
         height: "100%",
         width: "100%",
         background:
-          "linear-gradient(135deg,#fafafa 0%,#ffffff 60%,#fff5f5 100%)",
+          "linear-gradient(135deg, var(--background) 0%, var(--card) 60%, color-mix(in srgb, var(--background) 92%, var(--primary)) 100%)",
         overflow: "hidden",
       }}
     >
@@ -178,7 +181,7 @@ export default function Map() {
         style={{
           height: "100%",
           width: "100%",
-          background: "black",
+          background: "var(--background)",
           filter: "drop-shadow(0 12px 20px rgba(220,38,38,0.25))",
         }}
         zoomSnap={0.5}
@@ -195,7 +198,7 @@ export default function Map() {
         <GeoJSON
           data={ontario as any}
           style={{
-            color: "#ffffff",
+            color: "var(--foreground)",
             weight: 1.5,
             fillColor: "#e51e25",
             fillOpacity: 1,

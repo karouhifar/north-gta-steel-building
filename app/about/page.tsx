@@ -17,7 +17,7 @@ import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
+import HandymanImg from "@/public/images/handyman.png";
 const stats = [
   {
     value: "Ontario",
@@ -127,7 +127,7 @@ export default function About() {
         </motion.div>
 
         <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 items-end gap-10">
+          <div className="grid grid-cols-12 items-start gap-10">
             <div className="col-span-12 lg:col-span-7">
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
@@ -232,7 +232,7 @@ export default function About() {
                 <Card className="relative overflow-hidden rounded-[2rem] border border-steel-mid bg-steel-dark p-2 shadow-2xl">
                   <CardContent className="group relative aspect-[4/5] overflow-hidden rounded-[1.5rem] p-0 sm:aspect-[16/11] lg:aspect-[4/5]">
                     <Image
-                      src="/images/about-steel-building.webp"
+                      src={HandymanImg}
                       alt="North GTA steel building project"
                       fill
                       priority

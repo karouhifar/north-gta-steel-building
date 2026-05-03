@@ -27,7 +27,7 @@ const contactItems = [
   },
   {
     icon: Mail,
-    label: "estimates@steelforge.ca",
+    label: "estimates@northgtasteel.ca",
   },
   {
     icon: MapPin,
@@ -159,7 +159,7 @@ export default function Footer() {
           className="flex flex-col items-center justify-between gap-4 border-t border-steel-gray pt-8 lg:flex-row"
         >
           <p className="text-center font-mono text-xs uppercase text-shadow-steel-dark lg:text-left">
-            © {new Date().getFullYear()} Steel Forge Structures Ltd. All rights
+            © {new Date().getFullYear()} North GTA Steel Ltd. All rights
             reserved.
           </p>
 

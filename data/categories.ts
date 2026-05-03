@@ -31,7 +31,7 @@ export const buildingCategories: BuildingCategory[] = [
     number: "01",
     title: "Commercial Steel Buildings",
     eyebrow: "Warehouses, Retail Spaces & Business Facilities",
-    heroImage: "/images/categories/commercial-hero.webp",
+    heroImage: "/images/categories/commercial-building.webp",
     summary:
       "Flexible commercial steel buildings designed for warehouses, retail units, offices, showrooms, and distribution facilities across Ontario.",
     description:
@@ -53,11 +53,19 @@ export const buildingCategories: BuildingCategory[] = [
     ],
     imageGallery: [
       {
-        src: "/images/categories/commercial-detail-1.webp",
+        src: "/images/categories/Deep_Earth_Farms.webp",
         alt: "Commercial steel warehouse exterior",
       },
       {
-        src: "/images/categories/commercial-detail-2.webp",
+        src: "/images/categories/retail-metal-building.webp",
+        alt: "Large commercial steel building interior",
+      },
+      {
+        src: "/images/categories/Stair-South.webp",
+        alt: "Large commercial steel building interior",
+      },
+      {
+        src: "/images/categories/Steel-Buildings.webp",
         alt: "Large commercial steel building interior",
       },
     ],
@@ -79,7 +87,7 @@ export const buildingCategories: BuildingCategory[] = [
     number: "02",
     title: "Industrial Steel Buildings",
     eyebrow: "Manufacturing, Processing & Heavy Equipment Storage",
-    heroImage: "/images/categories/industrial-hero.webp",
+    heroImage: "/images/categories/industrial-steel-building.webp",
     summary:
       "Heavy-duty steel buildings for manufacturing plants, processing facilities, equipment storage, and industrial operations.",
     description:
@@ -101,11 +109,19 @@ export const buildingCategories: BuildingCategory[] = [
     ],
     imageGallery: [
       {
-        src: "/images/categories/industrial-detail-1.webp",
+        src: "/images/categories/industrial-steel-building-2.webp",
         alt: "Industrial steel building exterior",
       },
       {
-        src: "/images/categories/industrial-detail-2.webp",
+        src: "/images/categories/industrial-steel-building-3.webp",
+        alt: "Industrial steel building interior with equipment",
+      },
+      {
+        src: "/images/categories/industrial-steel-building-4.webp",
+        alt: "Industrial steel building interior with equipment",
+      },
+      {
+        src: "/images/categories/industrial-steel-building-5.webp",
         alt: "Industrial steel building interior with equipment",
       },
     ],

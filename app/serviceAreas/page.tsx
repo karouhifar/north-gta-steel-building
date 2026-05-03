@@ -247,8 +247,8 @@ const cityGroups = [
 
 function OntarioMap() {
   return (
-    <div className="relative overflow-hidden rounded-[1.5rem] border border-steel-mid bg-steel-dark p-4 shadow-2xl">
-      <div className="mb-4 flex items-center justify-between gap-4 border-b border-steel-mid pb-4">
+    <div className="relative overflow-hidden rounded-[1.5rem] border border-border bg-muted p-4 shadow-2xl">
+      <div className="mb-4 flex items-center justify-between gap-4 border-b border-border pb-4">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-widest text-steel-red">
             Ontario Coverage Map
@@ -258,12 +258,12 @@ function OntarioMap() {
           </h3>
         </div>
 
-        <div className="rounded-full border border-steel-mid px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-steel-light">
+        <div className="rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
           Interactive
         </div>
       </div>
 
-      <div className="relative aspect-square overflow-hidden rounded-[1rem] border border-steel-mid bg-steel-black">
+      <div className="relative aspect-square overflow-hidden rounded-[1rem] border border-border bg-background">
         <Map />
       </div>
     </div>
@@ -274,16 +274,16 @@ export default function ServiceAreas() {
   const [openCity, setOpenCity] = useState<string>("toronto");
 
   return (
-    <main className="bg-steel-black text-foreground">
+    <main className="bg-background text-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-steel-gray bg-steel-black py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.08]" />
 
         <motion.div
           initial={{ opacity: 0, x: -120 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-steel-gray/20 lg:block"
+          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-foreground/5 lg:block"
           style={{ fontSize: "16vw" }}
         >
           Ontario
@@ -337,7 +337,7 @@ export default function ServiceAreas() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="max-w-2xl font-general text-base leading-relaxed text-steel-light lg:text-lg"
+                className="max-w-2xl font-general text-base leading-relaxed text-muted-foreground lg:text-lg"
               >
                 We serve property owners, contractors, farmers, and businesses
                 across Ontario, with a strong focus on the Greater Toronto Area.
@@ -367,7 +367,7 @@ export default function ServiceAreas() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-auto rounded-none border-steel-mid bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
+                  className="h-auto rounded-none border-border bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
                 >
                   <Link href="/#services">Explore Services</Link>
                 </Button>
@@ -384,9 +384,9 @@ export default function ServiceAreas() {
               }}
               className="col-span-12 lg:col-span-5"
             >
-              <Card className="rounded-[1.75rem] border border-steel-mid bg-steel-dark shadow-2xl">
+              <Card className="rounded-[1.75rem] border border-border bg-muted shadow-2xl">
                 <CardContent className="p-6 sm:p-8">
-                  <div className="mb-6 flex items-start justify-between gap-4 border-b border-steel-mid pb-6">
+                  <div className="mb-6 flex items-start justify-between gap-4 border-b border-border pb-6">
                     <div>
                       <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
                         Service Coverage
@@ -396,7 +396,7 @@ export default function ServiceAreas() {
                       </h2>
                     </div>
 
-                    <div className="hidden rounded-full border border-steel-mid px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-steel-light sm:block">
+                    <div className="hidden rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:block">
                       GTA Priority
                     </div>
                   </div>
@@ -404,7 +404,7 @@ export default function ServiceAreas() {
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <MapPin className="mt-0.5 size-5 shrink-0 text-steel-red" />
-                      <p className="font-general text-sm leading-relaxed text-steel-light">
+                      <p className="font-general text-sm leading-relaxed text-muted-foreground">
                         Core service area includes Toronto, Peel, York, Durham,
                         Halton, Niagara, Eastern Ontario, and selected Northern
                         Ontario coverage.
@@ -413,7 +413,7 @@ export default function ServiceAreas() {
 
                     <div className="flex items-start gap-3">
                       <ShieldCheck className="mt-0.5 size-5 shrink-0 text-steel-red" />
-                      <p className="font-general text-sm leading-relaxed text-steel-light">
+                      <p className="font-general text-sm leading-relaxed text-muted-foreground">
                         Permit-aware planning and steel building support adapted
                         to local municipal and site conditions.
                       </p>
@@ -421,7 +421,7 @@ export default function ServiceAreas() {
 
                     <div className="flex items-start gap-3">
                       <PackageCheck className="mt-0.5 size-5 shrink-0 text-steel-red" />
-                      <p className="font-general text-sm leading-relaxed text-steel-light">
+                      <p className="font-general text-sm leading-relaxed text-muted-foreground">
                         Support available for custom steel buildings, garages,
                         workshops, agricultural structures, warehouses, and
                         commercial projects.
@@ -436,14 +436,14 @@ export default function ServiceAreas() {
       </section>
 
       {/* Map + active city */}
-      <section className="border-b border-steel-gray bg-steel-dark py-24 lg:py-32">
+      <section className="border-b border-border bg-muted py-24 lg:py-32">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="mb-12 grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-2">
               <p className="font-mono text-xs uppercase tracking-widest text-steel-red">
                 [001]
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 Areas We Serve
               </p>
             </div>
@@ -479,7 +479,7 @@ export default function ServiceAreas() {
               }}
               className="col-span-12 lg:col-span-4"
             >
-              <Card className="h-full rounded-[1.5rem] border border-steel-mid bg-steel-black shadow-none">
+              <Card className="h-full rounded-[1.5rem] border border-border bg-background shadow-none">
                 <CardContent className="p-6 sm:p-8">
                   <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
                     Service Areas
@@ -489,12 +489,12 @@ export default function ServiceAreas() {
                     Ontario Coverage
                   </h3>
 
-                  <p className="mt-2 font-general text-sm leading-relaxed text-steel-light">
+                  <p className="mt-2 font-general text-sm leading-relaxed text-muted-foreground">
                     Select a city to view local steel building support, service
                     notes, and project coverage.
                   </p>
 
-                  <div className="my-6 h-px bg-steel-mid" />
+                  <div className="my-6 h-px bg-border" />
 
                   <div className="max-h-175 space-y-3 overflow-y-auto pr-2">
                     {serviceCities.map((city) => {
@@ -507,7 +507,7 @@ export default function ServiceAreas() {
                           onOpenChange={(open) =>
                             setOpenCity(open ? city.slug : "")
                           }
-                          className="rounded-xl border border-steel-mid bg-steel-dark/60 transition-colors hover:border-steel-red/60"
+                          className="rounded-xl border border-border bg-muted/60 transition-colors hover:border-steel-red/60"
                         >
                           <CollapsibleTrigger className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
                             <div className="flex items-start gap-3">
@@ -520,31 +520,31 @@ export default function ServiceAreas() {
                                   {city.name}
                                 </h4>
 
-                                <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-steel-light">
+                                <p className="mt-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                                   {city.region}
                                 </p>
                               </div>
                             </div>
 
                             <ChevronDown
-                              className={`size-5 shrink-0 text-steel-light transition-transform duration-300 ${
+                              className={`size-5 shrink-0 text-muted-foreground transition-transform duration-300 ${
                                 isOpen ? "rotate-180 text-steel-red" : ""
                               }`}
                             />
                           </CollapsibleTrigger>
 
                           <CollapsibleContent className="px-4 pb-4">
-                            <div className="border-t border-steel-mid pt-4">
-                              <p className="font-general text-sm leading-relaxed text-steel-light">
+                            <div className="border-t border-border pt-4">
+                              <p className="font-general text-sm leading-relaxed text-muted-foreground">
                                 {city.description}
                               </p>
 
-                              <div className="mt-5 rounded-xl border border-steel-mid bg-steel-black/70 p-4">
+                              <div className="mt-5 rounded-xl border border-border bg-background/70 p-4">
                                 <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
                                   Coverage Note
                                 </p>
 
-                                <p className="font-general text-sm leading-relaxed text-steel-light">
+                                <p className="font-general text-sm leading-relaxed text-muted-foreground">
                                   Service availability can vary by project
                                   scope, location, and build requirements.
                                   Contact us to confirm your site and building
@@ -575,7 +575,7 @@ export default function ServiceAreas() {
       </section>
 
       {/* City groups */}
-      <section className="relative overflow-hidden border-b border-steel-gray bg-steel-black py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.05]" />
 
         <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
@@ -604,7 +604,7 @@ export default function ServiceAreas() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <Card className="h-full rounded-none border border-steel-mid bg-transparent shadow-none">
+                <Card className="h-full rounded-none border border-border bg-transparent shadow-none">
                   <CardContent className="p-8">
                     <p className="mb-6 font-mono text-xs uppercase tracking-widest text-steel-red">
                       0{index + 1}
@@ -627,7 +627,7 @@ export default function ServiceAreas() {
                             onClick={() =>
                               cityMatch && setOpenCity(cityMatch.slug)
                             }
-                            className="border border-steel-mid px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-steel-light transition-all duration-300 hover:border-steel-red hover:text-steel-red"
+                            className="border border-border px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-all duration-300 hover:border-steel-red hover:text-steel-red"
                           >
                             {city}
                           </button>
@@ -643,7 +643,7 @@ export default function ServiceAreas() {
       </section>
 
       {/* Services in these areas */}
-      <section className="border-b border-steel-gray bg-steel-dark py-24 lg:py-32">
+      <section className="border-b border-border bg-muted py-24 lg:py-32">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="mb-16 grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-3">
@@ -659,7 +659,7 @@ export default function ServiceAreas() {
             </div>
 
             <div className="col-span-12 lg:col-span-9">
-              <p className="max-w-3xl font-general text-base leading-relaxed text-steel-light">
+              <p className="max-w-3xl font-general text-base leading-relaxed text-muted-foreground">
                 Our Ontario coverage supports planning, steel building supply,
                 permit-aware preparation, and construction-related services
                 designed for commercial, industrial, agricultural, and custom
@@ -685,13 +685,13 @@ export default function ServiceAreas() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  <Card className="group h-full rounded-none border border-steel-mid bg-steel-black shadow-none transition-colors hover:border-steel-red">
+                  <Card className="group h-full rounded-none border border-border bg-background shadow-none transition-colors hover:border-steel-red">
                     <CardContent className="p-8">
                       <div className="mb-8 flex items-center justify-between">
-                        <span className="font-mono text-xs text-steel-light">
+                        <span className="font-mono text-xs text-muted-foreground">
                           0{index + 1}
                         </span>
-                        <Icon className="size-6 text-steel-light transition-colors group-hover:text-steel-red" />
+                        <Icon className="size-6 text-muted-foreground transition-colors group-hover:text-steel-red" />
                       </div>
 
                       <h3 className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground">

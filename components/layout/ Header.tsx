@@ -16,7 +16,19 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
-const navLinks = [
+interface NavChild {
+  label: string;
+  href: string;
+  description?: string;
+}
+
+interface NavLink {
+  label: string;
+  href: string;
+  children?: NavChild[];
+}
+
+const navLinks: NavLink[] = [
   {
     label: "Projects",
     href: "#projects",
@@ -24,6 +36,24 @@ const navLinks = [
   {
     label: "Services",
     href: "#services",
+    children: [
+      {
+        label: "Commercial",
+        href: "/categories/commercial",
+      },
+      {
+        label: "Industrial",
+        href: "/categories/industrial",
+      },
+      {
+        label: "Agricultural",
+        href: "/categories/agricultural",
+      },
+      {
+        label: "Aviation",
+        href: "/categories/aviation",
+      },
+    ],
   },
   {
     label: "Process",
@@ -97,7 +127,7 @@ function Logo() {
 }
 
 export default function Header() {
-  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState<string | null>(null);
 
   return (
     <motion.header
@@ -117,27 +147,32 @@ export default function Header() {
           className="hidden items-center gap-10 lg:flex"
         >
           {navLinks.map((link) => {
+            const isOpen = resourcesOpen === link.label;
             if (link.children) {
               return (
                 <motion.div
                   key={link.label}
                   variants={itemVariants}
                   className="relative"
-                  onMouseEnter={() => setResourcesOpen(true)}
-                  onMouseLeave={() => setResourcesOpen(false)}
+                  onMouseEnter={() => setResourcesOpen(() => link.label)}
+                  onMouseLeave={() => setResourcesOpen(() => null)}
                   whileHover={{ y: -2 }}
                   transition={{ duration: 0.25 }}
                 >
                   <button
                     type="button"
-                    onClick={() => setResourcesOpen((current) => !current)}
+                    onClick={() =>
+                      setResourcesOpen((current) =>
+                        current === link.label ? link.label : null,
+                      )
+                    }
                     className="hover-line group relative inline-flex items-center gap-1 font-general text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground focus:outline-none"
                   >
                     {link.label}
 
                     <motion.span
                       animate={{
-                        rotate: resourcesOpen ? 180 : 0,
+                        rotate: isOpen ? 180 : 0,
                       }}
                       transition={{
                         duration: 0.25,
@@ -149,7 +184,7 @@ export default function Header() {
                   </button>
 
                   <AnimatePresence>
-                    {resourcesOpen && (
+                    {isOpen && (
                       <motion.div
                         initial={{
                           opacity: 0,
@@ -177,7 +212,7 @@ export default function Header() {
                       >
                         <div className="border-b border-border px-4 py-3">
                           <p className="font-mono text-[10px] uppercase tracking-widest text-steel-red">
-                            Resources
+                            {link.label}
                           </p>
                         </div>
 
@@ -203,7 +238,7 @@ export default function Header() {
                                   </span>
 
                                   <span className="mt-1 block font-general text-xs normal-case tracking-normal text-muted-foreground">
-                                    {child.description}
+                                    {child?.description}
                                   </span>
                                 </span>
 
