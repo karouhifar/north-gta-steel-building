@@ -38,5 +38,5 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     notFound();
   }
 
-  return <CategoryTemplate category={category} />;
+  return <CategoryTemplate category={category} slug={slug} />;
 }

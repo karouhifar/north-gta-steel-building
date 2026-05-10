@@ -23,9 +23,13 @@ import { Quote } from "../sections/multi-storey/Quote";
 
 type CategoryTemplateProps = {
   category: BuildingCategory;
+  slug: string;
 };
 
-export default function CategoryTemplate({ category }: CategoryTemplateProps) {
+export default function CategoryTemplate({
+  category,
+  slug,
+}: CategoryTemplateProps) {
   return (
     <main className="min-h-screen relative overflow-hidden border-b bg-background  text-foreground ">
       {/* ============================================================== */}
@@ -128,30 +132,35 @@ export default function CategoryTemplate({ category }: CategoryTemplateProps) {
           </motion.div>
         </div>
       </section>
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Specs />
-      </section>
-      <Separator className="bg-foreground/10" />
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Anatomy />
-      </section>
-      <Separator className="bg-foreground/10" />
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Process />
-      </section>
-      <Separator className="bg-foreground/10" />
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Compliance />
-      </section>
-      <Separator className="bg-foreground/10" />
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Projects />
-      </section>
-      <Separator className="bg-foreground/10" />
-      <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
-        <Quote />
-      </section>
-      <Separator className="bg-foreground/10" />
+      {slug == "engineering-design" && (
+        <>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Specs />
+          </section>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Anatomy />
+          </section>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Process />
+          </section>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Compliance />
+          </section>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Projects />
+          </section>
+          <Separator className="bg-foreground/10" />
+          <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+            <Quote />
+          </section>
+          <Separator className="bg-foreground/10" />
+        </>
+      )}
       {/* ============================================================== */}
       {/* STRUCTURE DETAILS                                               */}
       {/* ============================================================== */}
@@ -191,7 +200,9 @@ export default function CategoryTemplate({ category }: CategoryTemplateProps) {
                 <span className="mb-8 block font-mono text-xs text-muted-foreground">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="text-lg font-semibold text-foreground">{feature}</p>
+                <p className="text-lg font-semibold text-foreground">
+                  {feature}
+                </p>
               </motion.div>
             ))}
           </div>
