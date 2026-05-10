@@ -9,8 +9,12 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { SectionLabel } from "./utils";
 import gta from "@/data/GTA_Boundary.json";
-import Map from "@/components/ui/leaflet-map";
+import dynamic from "next/dynamic";
 
+const Map = dynamic(() => import("@/components/ui/leaflet-map"), {
+  ssr: false,
+  loading: () => <div>Loading map...</div>,
+});
 const EASE_STEEL: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const codes = [
