@@ -198,7 +198,7 @@ export default function About() {
               >
                 <Button
                   asChild
-                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-white hover:bg-foreground hover:text-background"
+                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
                 >
                   <Link href="/#quote">
                     Get A Free Building Quote
@@ -246,7 +246,7 @@ export default function About() {
                         Ontario-Ready Structures
                       </p>
 
-                      <h2 className="font-clash text-2xl font-bold uppercase tracking-tight text-white">
+                      <h2 className="font-clash text-2xl font-bold uppercase tracking-tight text-primary-foreground">
                         Planning. Supply. Permit-Aware Support.
                       </h2>
 
@@ -623,17 +623,17 @@ export default function About() {
 
         <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-6 lg:flex-row lg:items-center lg:px-12">
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-white/70">
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary-foreground/70">
               Start Your Build
             </p>
 
-            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-white lg:text-6xl">
+            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-6xl">
               Start With A Plan
               <br />
               Before You Order Steel.
             </h2>
 
-            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-white/80">
+            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-primary-foreground/80">
               Tell us what you want to build, where you want to build it, and
               how you plan to use it. We will help you understand the right next
               step for your Ontario steel building project.
@@ -642,7 +642,7 @@ export default function About() {
 
           <Button
             asChild
-            className="h-auto rounded-none bg-white px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-white"
+            className="h-auto rounded-none bg-primary-foreground px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-primary-foreground"
           >
             <Link href="/#quote">
               Start A Free Steel Building Consultation

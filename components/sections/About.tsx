@@ -55,9 +55,9 @@ export default function About() {
             className="col-span-12 lg:col-span-7"
           >
             <h2 className="font-clash text-4xl font-semibold uppercase leading-tight tracking-tight text-foreground lg:text-6xl xl:text-7xl">
-              We don&apos;t build
+              We don&apos;t put up
               <br />
-              <span className="text-steel-light">shelters.</span>
+              <span className="text-steel-light">buildings.</span>
               <br />
               We engineer
               <br />

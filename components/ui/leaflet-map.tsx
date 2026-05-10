@@ -1,20 +1,28 @@
 "use client";
 
-import { MapContainer, GeoJSON, useMap } from "react-leaflet";
+import { MapContainer, GeoJSON, useMap, Marker } from "react-leaflet";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import ontario from "@/data/ontario.json";
+
 import { cities } from "@/data/cities";
 
-/** Fits the map to Ontario after the container has its real size,
+const marker: Record<string, [number, number] | number>[] = [
+  { Toronto: [43.75, -79.42], kpl: 1.7 }, // Toronto
+  { York: [43.9532, -79.4832], kpl: 1.9 }, // York
+  { Durham: [44, -79], kpl: 1.7 }, // Durham
+  { Peel: [43.8532, -79.8832], kpl: 1.8 }, // Peel
+  { Halton: [43.5032, -79.8932], kpl: 1.6 }, // Halton
+];
+
+/** Fits the map to the specified bounds after the container has its real size,
  *  and re-fits whenever the container resizes. */
-function FitToOntario() {
+function FitToMap({ shape }: { shape: GeoJSON.Feature }) {
   const map = useMap();
 
   useEffect(() => {
-    const bounds = L.geoJSON(ontario as any).getBounds();
+    const bounds = L.geoJSON(shape as any).getBounds();
 
     const fit = () => {
       map.invalidateSize();
@@ -143,7 +151,13 @@ function AnimatedCities() {
   );
 }
 
-export default function Map() {
+export default function Map({
+  shape,
+  hasCity = false,
+}: {
+  shape: GeoJSON.Feature;
+  hasCity?: boolean;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 48 }}
@@ -196,7 +210,7 @@ export default function Map() {
         attributionControl={false}
       >
         <GeoJSON
-          data={ontario as any}
+          data={shape}
           style={{
             color: "var(--foreground)",
             weight: 1.5,
@@ -205,8 +219,26 @@ export default function Map() {
             lineJoin: "round",
           }}
         />
-        <FitToOntario />
-        <AnimatedCities />
+        {marker.map((item, i) => {
+          const [name, position] = Object.entries(item)[0];
+
+          return (
+            <Marker
+              key={i}
+              position={
+                Array.isArray(position) ? position : [position, position]
+              }
+              icon={L.divIcon({
+                className: "toronto-watermark-icon",
+                html: `<span><b>${name}</b></span><br/><span>${item.kpl}</span>`,
+              })}
+              interactive={false}
+            />
+          );
+        })}
+
+        <FitToMap shape={shape} />
+        {hasCity && <AnimatedCities />}
       </MapContainer>
     </motion.div>
   );

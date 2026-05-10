@@ -57,16 +57,16 @@ function ProjectCard({
                 ? "(max-width: 1024px) 100vw, 58vw"
                 : "(max-width: 1024px) 100vw, 34vw"
             }
-            className="h-full object-cover brightness-75 contrast-125 grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-50"
+            className="h-full object-cover brightness-75 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-50"
           />
 
           {/* Dark overlay */}
-          <div className="absolute inset-0 bg-black/20 transition-colors duration-500 group-hover:bg-black/80" />
+          <div className="absolute inset-0 bg-foreground/20 transition-colors duration-500 group-hover:bg-foreground/80" />
 
           {/* Featured label */}
           {project.featured && (
             <div className="absolute left-4 top-4 bg-steel-red px-3 py-1">
-              <span className="font-mono text-xs uppercase tracking-widest text-white">
+              <span className="font-mono text-xs uppercase tracking-widest text-primary-foreground">
                 Featured
               </span>
             </div>
@@ -80,7 +80,7 @@ function ProjectCard({
               </p>
 
               <h3
-                className={`font-clash font-semibold uppercase tracking-tight text-white ${titleSizeClass}`}
+                className={`font-clash font-semibold uppercase tracking-tight text-primary-foreground ${titleSizeClass}`}
               >
                 {project.title}
               </h3>
@@ -100,7 +100,7 @@ function ProjectCard({
                       {stat.label}
                     </p>
 
-                    <p className="font-mono text-xs text-white sm:text-sm">
+                    <p className="font-mono text-xs text-primary-foreground sm:text-sm">
                       {stat.value}
                     </p>
                   </div>

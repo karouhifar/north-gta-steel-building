@@ -1,8 +1,9 @@
-export type CategorySlug =
-  | "commercial"
-  | "industrial"
-  | "agricultural"
-  | "aviation";
+export enum CategorySlug {
+  Commercial = "commercial",
+  Industrial = "industrial",
+  Agricultural = "agricultural",
+  EngineeringDesign = "engineering-design",
+}
 
 export type BuildingCategory = {
   slug: CategorySlug;
@@ -27,7 +28,7 @@ export type BuildingCategory = {
 
 export const buildingCategories: BuildingCategory[] = [
   {
-    slug: "commercial",
+    slug: CategorySlug.Commercial,
     number: "01",
     title: "Commercial Steel Buildings",
     eyebrow: "Warehouses, Retail Spaces & Business Facilities",
@@ -83,7 +84,7 @@ export const buildingCategories: BuildingCategory[] = [
     ],
   },
   {
-    slug: "industrial",
+    slug: CategorySlug.Industrial,
     number: "02",
     title: "Industrial Steel Buildings",
     eyebrow: "Manufacturing, Processing & Heavy Equipment Storage",
@@ -139,7 +140,7 @@ export const buildingCategories: BuildingCategory[] = [
     ],
   },
   {
-    slug: "agricultural",
+    slug: CategorySlug.Agricultural,
     number: "03",
     title: "Agricultural Steel Buildings",
     eyebrow: "Barns, Riding Arenas, Equipment Shelters & Storage",
@@ -187,50 +188,50 @@ export const buildingCategories: BuildingCategory[] = [
     ],
   },
   {
-    slug: "aviation",
+    slug: CategorySlug.EngineeringDesign,
     number: "04",
-    title: "Aviation Steel Buildings",
-    eyebrow: "Aircraft Hangars, Maintenance Facilities & FBO Buildings",
-    heroImage: "/images/categories/aviation-hero.webp",
+    title: "Steel Engineering & Design",
+    eyebrow: "Structural Engineering, Stamped Drawings & Custom Frame Design",
+    heroImage: "/images/categories/engineering-design-hero.webp",
     summary:
-      "Custom aviation steel buildings for aircraft hangars, maintenance shops, airport support buildings, and FBO facilities.",
+      "Custom steel building engineering and design services — structural drawings, frame engineering, and P.Eng sealed packages for Ontario projects.",
     description:
-      "Aviation buildings require wide clear spans, large door systems, high clearances, and precise engineering. Steel construction is a strong choice for hangars, repair facilities, private aircraft storage, and airport service buildings.",
-    minSize: "From 3,600 sq ft",
+      "Every steel building stands or fails on its engineering. We provide stamped structural drawings, custom frame design, and Ontario Building Code compliant packages — whether you're a contractor needing sealed plans for permit, an owner adapting a kit to your site, or a developer scoping a new build from scratch.",
+    minSize: "Custom scope",
     bestFor: [
-      "Aircraft hangars",
-      "Maintenance facilities",
-      "Private aircraft storage",
-      "FBO terminals",
-      "Airport support buildings",
+      "Permit-ready stamped drawings",
+      "Custom frame engineering",
+      "Foundation design",
+      "Site-specific load analysis",
+      "Retrofit and modification engineering",
     ],
     features: [
-      "Large clear-span framing",
-      "Bi-fold and hydraulic hangar door options",
-      "High clearance layouts",
-      "Insulated roof and wall systems",
-      "Custom layouts for aviation workflow",
+      "P.Eng sealed structural drawings",
+      "Ontario Building Code (OBC) compliance",
+      "Custom snow, wind, and seismic load calculations",
+      "Foundation and anchor bolt design",
+      "Frame modifications for existing buildings",
     ],
     imageGallery: [
       {
-        src: "/images/categories/aviation-detail-1.webp",
-        alt: "Aircraft hangar steel building exterior",
+        src: "/images/categories/Main_Steel_Frame.webp",
+        alt: "Structural steel engineering drawings and blueprints",
       },
       {
-        src: "/images/categories/aviation-detail-2.webp",
-        alt: "Aircraft inside a steel hangar",
+        src: "/images/categories/Main_Steel_Frame2.webp",
+        alt: "Engineer reviewing steel frame design on site",
       },
     ],
     sections: [
       {
-        title: "Wide spans for aircraft access",
+        title: "Stamped drawings for permit submission",
         description:
-          "Steel framing allows large open areas with minimal interior obstruction, making it ideal for aircraft movement and storage.",
+          "Our P.Eng licensed engineers provide sealed structural packages ready for municipal permit submission across Ontario, including site-specific load calculations and foundation details.",
       },
       {
-        title: "Engineered around door systems",
+        title: "Engineered for your site, not a catalog",
         description:
-          "Hangar buildings can be designed around bi-fold, hydraulic, or custom aircraft door systems depending on aircraft size and use.",
+          "Snow loads in Barrie aren't the same as Toronto. Wind exposure on rural land differs from urban infill. Every design is calculated for your exact location, soil conditions, and intended use.",
       },
     ],
   },

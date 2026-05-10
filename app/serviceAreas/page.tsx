@@ -22,6 +22,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
+import ontario from "@/data/ontario.json";
 
 const Map = dynamic(() => import("@/components/ui/leaflet-map"), {
   ssr: false,
@@ -264,7 +265,7 @@ function OntarioMap() {
       </div>
 
       <div className="relative aspect-square overflow-hidden rounded-[1rem] border border-border bg-background">
-        <Map />
+        <Map shape={ontario as any} hasCity />
       </div>
     </div>
   );
@@ -356,7 +357,7 @@ export default function ServiceAreas() {
               >
                 <Button
                   asChild
-                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-white hover:bg-foreground hover:text-background"
+                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
                 >
                   <Link href="/#quote">
                     Get A Free Quote
@@ -554,7 +555,7 @@ export default function ServiceAreas() {
 
                               <Button
                                 asChild
-                                className="mt-5 h-auto w-full rounded-xl bg-steel-red px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-white hover:bg-foreground hover:text-background"
+                                className="mt-5 h-auto w-full rounded-xl bg-steel-red px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
                               >
                                 <Link href="/#quote">
                                   Request Service In {city.name}
@@ -718,17 +719,17 @@ export default function ServiceAreas() {
 
         <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-6 lg:flex-row lg:items-center lg:px-12">
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-white/70">
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary-foreground/70">
               Start Your Build
             </p>
 
-            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-white lg:text-6xl">
+            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-6xl">
               Need Steel Building
               <br />
               Service In Ontario?
             </h2>
 
-            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-white/80">
+            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-primary-foreground/80">
               Tell us what you want to build and where the project is located.
               We’ll help you understand the right next step for your service
               area and building type.
@@ -737,7 +738,7 @@ export default function ServiceAreas() {
 
           <Button
             asChild
-            className="h-auto rounded-none bg-white px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-white"
+            className="h-auto rounded-none bg-primary-foreground px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-primary-foreground"
           >
             <Link href="/#quote">
               Get A Free Estimate

@@ -64,7 +64,7 @@ export default function RawSteelSection() {
                     alt="Steel fabrication"
                     fill
                     sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover grayscale contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-75"
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-75"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-steel-black/60 via-transparent to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-100" />

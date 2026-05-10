@@ -2,18 +2,21 @@
 
 "use client";
 
-import { Factory, Plane, Tractor, Warehouse } from "lucide-react";
+import { Factory, DraftingCompass, Tractor, Warehouse } from "lucide-react";
 import { motion } from "motion/react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { services, type ServiceIcon } from "@/data/services";
 
-const iconMap = {
+const iconMap: Record<
+  ServiceIcon,
+  React.ComponentType<{ className?: string }>
+> = {
   warehouse: Warehouse,
   factory: Factory,
   tractor: Tractor,
-  plane: Plane,
-} satisfies Record<ServiceIcon, React.ComponentType<{ className?: string }>>;
+  DraftingCompass: DraftingCompass,
+};
 
 export default function ServicesSection() {
   return (

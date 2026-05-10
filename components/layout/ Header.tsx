@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+import LogoImg from "@/public/images/logo/logo.png";
 
 interface NavChild {
   label: string;
@@ -50,8 +51,8 @@ const navLinks: NavLink[] = [
         href: "/categories/agricultural",
       },
       {
-        label: "Aviation",
-        href: "/categories/aviation",
+        label: "Engineering Design",
+        href: "/categories/engineering-design",
       },
     ],
   },
@@ -107,21 +108,24 @@ const itemVariants = {
   },
 };
 
-function Logo() {
+function LogoSection() {
   return (
     <Link href="/" className="flex items-center gap-3">
       <motion.div
-        whileHover={{ rotate: 180, scale: 1.05 }}
+        whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="flex h-8 w-8 items-center justify-center bg-steel-red"
+        className="flex  items-center justify-center "
       >
-        <div className="h-0 w-0 rotate-180 border-x-[6px] border-b-[10px] border-x-transparent border-b-white" />
+        <Image
+          src={LogoImg}
+          alt="North GTA Steel Buildings Logo"
+          width={220}
+          height={70}
+          priority
+          className="h-auto w-30 object-contain transition duration-700 group-hover:scale-105 lg:w-35"
+        />
       </motion.div>
-
-      <span className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground">
-        North GTA Steel
-      </span>
     </Link>
   );
 }
@@ -138,7 +142,7 @@ export default function Header() {
     >
       <nav className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-6 lg:px-12">
         <motion.div variants={itemVariants}>
-          <Logo />
+          <LogoSection />
         </motion.div>
 
         {/* Desktop nav */}
@@ -423,7 +427,7 @@ export default function Header() {
 
                 <Button
                   asChild
-                  className="w-full rounded-none bg-steel-red font-general text-xs font-semibold uppercase tracking-widest text-white hover:bg-steel-darkred"
+                  className="w-full rounded-none bg-steel-red font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-steel-darkred"
                 >
                   <Link href="#quote">Free Estimate</Link>
                 </Button>

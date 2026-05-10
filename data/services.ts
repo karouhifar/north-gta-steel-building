@@ -4,7 +4,7 @@ export enum ServiceIcon {
   Warehouse = "warehouse",
   Factory = "factory",
   Tractor = "tractor",
-  Plane = "plane",
+  Drafting = "DraftingCompass",
 }
 
 export type Service = {
@@ -45,12 +45,12 @@ export const services: Service[] = [
     startingFrom: "FROM 2,400 SQ FT",
   },
   {
-    id: "aviation",
+    id: "engineering-design",
     number: "04",
-    title: "Aviation",
-    icon: ServiceIcon.Plane,
+    title: "Engineering Design",
+    icon: ServiceIcon.Drafting,
     description:
-      "Aircraft hangars, maintenance facilities, FBO terminals. Bi-fold and hydraulic door systems. Transport Canada compliant.",
-    startingFrom: "FROM 3,600 SQ FT",
+      "Stamped structural drawings, custom frame engineering, foundation design. Ontario Building Code compliant with P.Eng sealed packages for permit submission.",
+    startingFrom: "FROM CUSTOM QUOTE",
   },
 ];

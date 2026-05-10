@@ -18,24 +18,11 @@ import {
 } from "@/components/ui/select";
 
 import { buildingSizeFields, buildingUseOptions } from "@/data/quote";
+import { QuoteUI } from "../ui/quoteUI";
 
 export default function QuoteSection() {
   return (
-    <section
-      id="quote"
-      className="relative overflow-hidden bg-steel-red py-24 lg:py-10 scroll-mt-25"
-    >
-      {/* Diagonal line pattern */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0,0,0,0.2) 40px, rgba(0,0,0,0.2) 41px)",
-          opacity: 1,
-          pointerEvents: "none",
-        }}
-      />
+    <QuoteUI id="quote">
       <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
         <div className="grid grid-cols-12 items-center gap-8">
           {/* Left content */}
@@ -49,17 +36,17 @@ export default function QuoteSection() {
             }}
             className="col-span-12 lg:col-span-7"
           >
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-white/60">
+            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-primary-foreground/60">
               [004] Start Your Build
             </p>
 
-            <h2 className="mb-6 font-clash text-5xl font-bold uppercase leading-none tracking-tight text-white lg:text-7xl xl:text-8xl">
+            <h2 className="mb-6 font-clash text-5xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-7xl xl:text-8xl">
               Get A Free
               <br />
               Estimate_
             </h2>
 
-            <p className="max-w-lg font-general text-base leading-relaxed text-white/80">
+            <p className="max-w-lg font-general text-base leading-relaxed text-primary-foreground/80">
               Three steps. No obligation. Our engineering team will prepare a
               complete structural specification and budgetary estimate for your
               project within 48 hours.
@@ -170,9 +157,9 @@ export default function QuoteSection() {
                   font-mono
                   text-sm
                   focus:bg-steel-red
-                  focus:text-white
+                  focus:text-primary-foreground
                   data-[highlighted]:bg-steel-red
-                  data-[highlighted]:text-white
+                  data-[highlighted]:text-primary-foreground
                 "
                           >
                             {option}
@@ -206,7 +193,7 @@ export default function QuoteSection() {
           font-semibold
           uppercase
           tracking-widest
-          text-white
+          text-primary-foreground
           transition-all
           duration-300
           hover:-translate-y-0.5
@@ -227,6 +214,6 @@ export default function QuoteSection() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </QuoteUI>
   );
 }

@@ -60,7 +60,7 @@ export default function Hero() {
                 Featured Build
               </p>
 
-              <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-white xl:text-2xl">
+              <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-primary-foreground xl:text-2xl">
                 Industrial Steel System
               </h2>
 
@@ -159,7 +159,7 @@ export default function Hero() {
                 >
                   <Button
                     asChild
-                    className="h-auto rounded-none bg-foreground px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-background hover:bg-steel-red hover:text-white sm:px-8"
+                    className="h-auto rounded-none bg-foreground px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-background hover:bg-steel-red hover:text-primary-foreground sm:px-8"
                   >
                     <Link href="#quote" className="flex items-center">
                       Get a Free Quote
