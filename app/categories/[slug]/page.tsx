@@ -1,4 +1,3 @@
-"use client";
 import { notFound } from "next/navigation";
 import { buildingCategories, getCategoryBySlug } from "@/data/categories";
 import CategoryTemplate from "@/components/template/CategoryTemplate";
