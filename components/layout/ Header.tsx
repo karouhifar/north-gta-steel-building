@@ -292,7 +292,7 @@ export default function Header() {
               variant="default"
               className="rounded-none px-6 py-3 text-xs font-medium uppercase tracking-widest"
             >
-              <Link href="#quote">Free Estimate</Link>
+              <Link href="/contact">Free Estimate</Link>
             </Button>
           </motion.div>
 
@@ -429,7 +429,7 @@ export default function Header() {
                   asChild
                   className="w-full rounded-none bg-steel-red font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-steel-darkred"
                 >
-                  <Link href="#quote">Free Estimate</Link>
+                  <Link href="/contact">Free Estimate</Link>
                 </Button>
 
                 <AnimatedThemeToggler
