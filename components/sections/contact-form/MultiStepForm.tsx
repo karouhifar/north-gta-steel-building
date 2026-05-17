@@ -87,8 +87,17 @@ export function QuoteForm() {
     }
     try {
       // Replace with real submission (API route, server action, etc.)
-      await new Promise((r) => setTimeout(r, 900));
-      console.log("Quote submission:", values);
+      const res = await fetch("/api/turnstile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, token }),
+      });
+
+      if (!res.ok) {
+        turnstileRef.current?.reset();
+        setSubmitting(false);
+        throw new Error("Failed to submit");
+      }
       methods.reset(DEFAULT_VALUES);
       turnstileRef.current?.reset();
       setDone(true);
