@@ -42,16 +42,16 @@ export async function POST(request: Request) {
       request.headers.get("cf-connecting-ip") ??
       request.headers.get("x-forwarded-for")?.split(",")[0];
     const { token, ...data } = parsed.data;
-    const res = await verifyTurnstileToken(token, ip);
+    // const res = await verifyTurnstileToken(token, ip);
 
-    if (!res.success)
-      return NextResponse.json(
-        { error: "Verification failed" },
-        { status: 403 },
-      );
+    // if (!res.success)
+    //   return NextResponse.json(
+    //     { error: "Verification failed" },
+    //     { status: 403 },
+    //   );
 
     // Forward to Bun service Email automation (or handle as needed)
-    const forwardRes = await fetch(`${process.env.BUN_API_URL}/quotes`, {
+    const forwardRes = await fetch(`${process.env.BUN_API_URL}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
