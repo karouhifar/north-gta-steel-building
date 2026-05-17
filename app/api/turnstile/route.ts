@@ -1,5 +1,7 @@
 "use server";
 
+import { NextResponse } from "next/server";
+
 async function verifyTurnstileToken(token: string, ip?: string) {
   const res = await fetch(
     "https://challenges.cloudflare.com/turnstile/v0/siteverify",
@@ -18,5 +20,7 @@ async function verifyTurnstileToken(token: string, ip?: string) {
 
 export async function POST(request: Request) {
   const { token, ip } = await request.json();
-  return verifyTurnstileToken(token, ip);
+  await verifyTurnstileToken(token, ip);
+
+  return NextResponse.json({ success: true });
 }
