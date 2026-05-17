@@ -15,3 +15,8 @@ async function verifyTurnstileToken(token: string, ip?: string) {
   );
   return (await res.json()) as { success: boolean; "error-codes": string[] };
 }
+
+export async function POST(request: Request) {
+  const { token, ip } = await request.json();
+  return verifyTurnstileToken(token, ip);
+}
