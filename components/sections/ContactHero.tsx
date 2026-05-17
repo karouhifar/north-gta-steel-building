@@ -73,13 +73,13 @@ export function ContactHero() {
         variants={item}
         className="mt-5 font-clash text-5xl font-bold uppercase leading-[0.95] tracking-tight sm:text-6xl md:text-7xl"
       >
-        Let&apos;s build
+        Let &apos;s build
         <br />
         <span className="text-steel-red">something great</span>
       </motion.h1>
 
       {/* Red underline accent */}
-      <motion.div variants={item} className="mt-6 h-[3px] w-16 bg-steel-red" />
+      <motion.div variants={item} className="mt-6 h-0.75 w-16 bg-steel-red" />
 
       {/* Description */}
       <motion.p
