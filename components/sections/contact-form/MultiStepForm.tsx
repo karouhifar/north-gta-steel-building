@@ -95,12 +95,12 @@ export function QuoteForm() {
 
       if (!res.ok) {
         turnstileRef.current?.reset();
-        setSubmitting(false);
         throw new Error("Failed to submit");
       }
       methods.reset(DEFAULT_VALUES);
       turnstileRef.current?.reset();
       setDone(true);
+      setSubmitting(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
       methods.setError("root", {
