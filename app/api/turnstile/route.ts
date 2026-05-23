@@ -29,13 +29,16 @@ async function verifyTurnstileToken(token: string, ip?: string) {
 }
 
 export async function GET() {
-  await fetch(`${process.env.BUN_API_URL}/health`, {
+  const res = await fetch(`${process.env.BUN_API_URL}/health`, {
     method: "GET",
-    mode: "no-cors", // avoids CORS noise for a fire-and-forget ping
     keepalive: true,
   }).catch(() => {});
-
-  return NextResponse.json({ message: "ok" });
+  const isHealthy = res?.ok;
+  if (!isHealthy) {
+    return NextResponse.json({ error: "Service unhealthy" }, { status: 503 });
+  }
+  const json = await res.json().catch(() => null);
+  return NextResponse.json({ data: json });
 }
 
 export async function POST(request: Request) {
