@@ -158,7 +158,7 @@ export function StepContact() {
           Msg frequency varies. Msg & data rates may apply. Reply HELP for help,
           STOP to opt out.{" "}
           <Link
-            href="https://www.hybrid-steel.com/privacy-policy/"
+            href="/privacy-policy"
             target="_blank"
             rel="noopener noreferrer"
             className="relative font-semibold text-steel-red underline-offset-4 hover:underline"

@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Grid from "@/public/images/grid.svg";
 import HeroIMG from "@/public/images/hero_img.png";
 
-const titleLines = ["GTA", "STEEL", "CRAFT"];
+const titleLines = ["North GTA", "STEEL", "Buildings"];
 
 export default function Hero() {
   return (
@@ -26,60 +26,59 @@ export default function Hero() {
         />
       </div>
 
-      {/* Featured build card — desktop only */}
-      <motion.div
-        initial={{ opacity: 0, x: 80, scale: 0.96 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={{ y: -8, scale: 1.015 }}
-        className="group pointer-events-auto absolute right-6 top-24 z-20 hidden w-[min(40vw,420px)] lg:block xl:right-16 xl:top-20 xl:w-[min(45vw,640px)] 2xl:w-[700px]"
-      >
-        {/* Red border accent — brand */}
-        <div className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-steel-red" />
-
-        <Card className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-2xl">
-          <CardContent className="relative aspect-6/4 overflow-hidden rounded-[1.5rem] p-0">
-            <Image
-              src={HeroIMG}
-              alt="Modern steel building exterior"
-              fill
-              priority
-              sizes="(min-width: 1536px) 700px, (min-width: 1280px) 45vw, 40vw"
-              className="object-cover brightness-90 contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale group-hover:brightness-50 group-hover:contrast-100"
-            />
-
-            {/* Hover overlay — stays dark, sits on photo */}
-            <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-steel-black/20 via-transparent to-transparent transition-all duration-700 ease-out group-hover:from-steel-black/90 group-hover:via-steel-black/40" />
-
-            {/* Red hover line */}
-            <div className="pointer-events-none absolute left-6 top-6 h-0.5 w-0 bg-steel-red transition-all duration-500 ease-out group-hover:w-24" />
-
-            {/* Hover text — stays light, on dark photo overlay */}
-            <div className="pointer-events-none absolute bottom-0 left-0 right-0 translate-y-8 p-4 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:p-6">
-              <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-steel-red xl:text-xs">
-                Featured Build
-              </p>
-
-              <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-primary-foreground xl:text-2xl">
-                Industrial Steel System
-              </h2>
-
-              <p className="mt-2 max-w-sm font-general text-xs leading-relaxed text-steel-offwhite xl:text-sm">
-                Clear-span structure engineered for commercial and industrial
-                applications across Ontario.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </motion.div>
-
       {/* Left fade for legibility — fades to page bg */}
       <div className="pointer-events-none absolute inset-0 z-2 bg-linear-to-r from-background via-background/30 to-transparent" />
 
       {/* Main content */}
       <div className="pointer-events-none relative z-10 mx-auto w-full max-w-screen-2xl px-5 pb-20 sm:px-8 sm:pb-24 lg:px-12 lg:pb-28 xl:pb-32">
+        {/* Featured build card — desktop only */}
+        <motion.div
+          initial={{ opacity: 0, x: 80, scale: 0.96 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ y: -8, scale: 1.015 }}
+          className="group pointer-events-auto absolute right-6 top-0! z-20 hidden w-[min(40vw,420px)] lg:block xl:right-16 xl:top-20 xl:w-[min(45vw,640px)] 2xl:w-[700px]"
+        >
+          {/* Red border accent — brand */}
+          <div className="pointer-events-none absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-steel-red" />
+
+          <Card className="relative overflow-hidden rounded-[2rem] border border-border bg-card p-2 shadow-2xl">
+            <CardContent className="relative aspect-6/4 overflow-hidden rounded-[1.5rem] p-0">
+              <Image
+                src={HeroIMG}
+                alt="Modern steel building exterior"
+                fill
+                priority
+                sizes="(min-width: 1536px) 700px, (min-width: 1280px) 45vw, 40vw"
+                className="object-cover brightness-90 contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale group-hover:brightness-50 group-hover:contrast-100"
+              />
+
+              {/* Hover overlay — stays dark, sits on photo */}
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-steel-black/20 via-transparent to-transparent transition-all duration-700 ease-out group-hover:from-steel-black/90 group-hover:via-steel-black/40" />
+
+              {/* Red hover line */}
+              <div className="pointer-events-none absolute left-6 top-6 h-0.5 w-0 bg-steel-red transition-all duration-500 ease-out group-hover:w-24" />
+
+              {/* Hover text — stays light, on dark photo overlay */}
+              <div className="pointer-events-none absolute bottom-0 left-0 right-0 translate-y-8 p-4 opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 sm:p-6">
+                <p className="mb-2 font-mono text-[10px] uppercase tracking-widest text-steel-red xl:text-xs">
+                  Featured Build
+                </p>
+
+                <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-primary-foreground xl:text-2xl">
+                  Industrial Steel System
+                </h2>
+
+                <p className="mt-2 max-w-sm font-general text-xs leading-relaxed text-steel-offwhite xl:text-sm">
+                  Clear-span structure engineered for commercial and industrial
+                  applications across Ontario.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
         <div className="grid grid-cols-12 items-end gap-6">
-          <div className="pointer-events-auto col-span-12 lg:col-span-8">
+          <div className="flex flex-col pointer-events-auto col-span-12 lg:col-span-8 gap-y-6">
             <div className="mb-2 overflow-hidden">
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
@@ -91,7 +90,7 @@ export default function Hero() {
                 }}
                 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs"
               >
-                Pre-Engineered Steel Structures — Since 2010
+                Pre-Engineered Steel Structures — Since 2025
               </motion.p>
             </div>
 
@@ -108,11 +107,11 @@ export default function Hero() {
                     }}
                     className="font-clash font-bold uppercase leading-none tracking-tight text-foreground"
                     style={{
-                      fontSize: "clamp(72px, 9vw, 160px)",
+                      fontSize: "clamp(72px, 7vw, 150px)",
                     }}
                   >
                     {line}
-                    {line !== "GTA" && (
+                    {line !== "North GTA" && (
                       <span className="text-steel-red">&nbsp;.</span>
                     )}
                   </motion.h1>

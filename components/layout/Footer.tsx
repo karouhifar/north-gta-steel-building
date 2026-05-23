@@ -165,17 +165,10 @@ export default function Footer() {
 
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link
-              href="#privacy"
+              href="/privacy-policy"
               className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-foreground"
             >
-              Privacy
-            </Link>
-
-            <Link
-              href="#terms"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-foreground"
-            >
-              Terms
+              Privacy Policy
             </Link>
 
             <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
