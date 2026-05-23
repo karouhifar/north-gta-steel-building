@@ -28,8 +28,8 @@ async function verifyTurnstileToken(token: string, ip?: string) {
   return (await res.json()) as { success: boolean; "error-codes": string[] };
 }
 
-export function GET() {
-  fetch(`${process.env.BUN_API_URL}/health`, {
+export async function GET() {
+  await fetch(`${process.env.BUN_API_URL}/health`, {
     method: "GET",
     mode: "no-cors", // avoids CORS noise for a fire-and-forget ping
     keepalive: true,
