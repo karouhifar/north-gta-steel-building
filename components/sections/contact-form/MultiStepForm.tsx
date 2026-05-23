@@ -43,6 +43,7 @@ const DEFAULT_VALUES: QuoteFormInput = {
 
 export function QuoteForm() {
   const turnstileRef = useRef<TurnstileInstance>(null);
+  const warmedRef = useRef(false);
   const [step, setStep] = useState(1);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [submitting, setSubmitting] = useState(false);
@@ -55,6 +56,15 @@ export function QuoteForm() {
     mode: "onTouched",
     defaultValues: DEFAULT_VALUES,
   });
+
+  useEffect(() => {
+    if (step === 5 && !warmedRef.current) {
+      warmedRef.current = true;
+      fetch("/api/turnstile", { mode: "no-cors", keepalive: true }).catch(
+        () => {},
+      );
+    }
+  }, [step]);
 
   const next = async () => {
     const valid = await methods.trigger(STEP_FIELDS[step], {
