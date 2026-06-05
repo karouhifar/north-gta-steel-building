@@ -28,7 +28,7 @@ export const COUNTRY = "CA";
 export const VENDOR_NAME = "Dreams Digital";
 export const VENDOR_URL = "https://www.dreamsdigital.ca/";
 
-export const LOGO_PATH = "/images/logo/logo.png";
+export const LOGO_PATH = "favicon.ico";
 
 export const AREA_SERVED = [
   "Greater Toronto Area",
