@@ -66,7 +66,7 @@ const navLinks: NavLink[] = [
     children: [
       {
         label: "Service Area",
-        href: "/serviceAreas",
+        href: "/service-areas",
         description: "Ontario coverage and local service areas",
       },
     ],

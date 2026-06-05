@@ -1,41 +1,65 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { clash, general, mono } from "./fonts";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/ Header";
 import Footer from "@/components/layout/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/structured-data";
+import {
+  KEYWORDS,
+  LOCALE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE_DEFAULT,
+  SITE_URL,
+  VENDOR_NAME,
+  VENDOR_URL,
+} from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "North GTA Steel Building | Steel Buildings in Ontario | Vaughan, Markham, Richmond Hill, Aurora, Newmarket | Toronto Area Stee",
-    template: "%s | North GTA Steel Building",
+    default: SITE_TITLE_DEFAULT,
+    template: "%s | North GTA STEEL",
   },
-  description:
-    "Durable commercial, industrial, agricultural, and custom steel buildings across Vaughan, Markham, Richmond Hill, Aurora, Newmarket, and the Greater Toronto Area.",
-  metadataBase: new URL("https://northgtasteel.com"),
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: KEYWORDS,
+  authors: [{ name: VENDOR_NAME, url: VENDOR_URL }],
+  creator: VENDOR_NAME,
+  publisher: SITE_NAME,
+  alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "North GTA Steel Building",
-    description:
-      "Custom steel building solutions for commercial, industrial, agricultural, and storage projects across Ontario.",
-    url: "https://northgtasteel.com",
-    siteName: "North GTA Steel Building",
-    locale: "en_CA",
     type: "website",
+    locale: LOCALE,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE_DEFAULT,
+    description: SITE_DESCRIPTION,
   },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  category: "Construction",
 };
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+};
 
 export default function RootLayout({
   children,
@@ -44,19 +68,21 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-CA"
       className={cn(
         "h-full",
         "antialiased",
-        geistSans.variable,
-        geistMono.variable,
+        clash.variable,
+        general.variable,
+        mono.variable,
         "font-sans",
-        inter.variable,
       )}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd data={organizationSchema()} />
+        <JsonLd data={websiteSchema()} />
         <Header />
-        <main className="pt-16">{children}</main>
+        <div className="pt-16">{children}</div>
         <Footer />
       </body>
     </html>

@@ -99,7 +99,7 @@ export default function CategoryTemplate({
                 variant="outline"
                 className="rounded-none border-foreground/20 bg-foreground/5 px-8 font-semibold uppercase tracking-wide text-foreground transition-colors hover:bg-foreground hover:text-background"
               >
-                <Link href="/service-area">View Service Area</Link>
+                <Link href="/service-areas">View Service Area</Link>
               </Button>
             </div>
           </motion.div>

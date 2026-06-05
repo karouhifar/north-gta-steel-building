@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -124,10 +123,10 @@
   --sidebar-border: #e5e5e5;
   --sidebar-ring: #cc0000;
 
-  /* Fonts */
-  --font-clash: "Clash Grotesk", Impact, sans-serif;
-  --font-general: "General Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-geist-mono: "JetBrains Mono", "Courier New", monospace;
+  /* Fonts — wired to next/font (self-hosted) variables, with fallbacks */
+  --font-clash: var(--font-clash-src), Impact, sans-serif;
+  --font-general: var(--font-general-src), "Helvetica Neue", Arial, sans-serif;
+  --font-geist-mono: var(--font-mono-src), "Courier New", monospace;
 }
 
 .dark {

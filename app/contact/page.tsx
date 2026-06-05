@@ -1,16 +1,47 @@
 import { QuoteForm } from "@/components/sections/contact-form/MultiStepForm";
 import { ContactHero } from "@/components/sections/ContactHero";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbSchema } from "@/lib/structured-data";
+import { EMAIL, PHONE, SITE_NAME, absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact | North GTA Steel Buildings",
+  title: "Contact",
   description:
-    "Get in touch with North GTA Steel Buildings. Five quick steps to your custom quote — built with precision, backed by experience, trusted across Ontario.",
+    "Get in touch with North GTA STEEL. Five quick steps to your custom quote — built with precision, backed by experience, trusted across Ontario.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: `Contact ${SITE_NAME}`,
+    description:
+      "Request a custom steel building quote across the Greater Toronto Area and Ontario.",
+    url: "/contact",
+    type: "website",
+  },
+};
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: `Contact ${SITE_NAME}`,
+  url: absoluteUrl("/contact"),
+  mainEntity: {
+    "@type": "Organization",
+    name: SITE_NAME,
+    telephone: PHONE,
+    email: EMAIL,
+  },
 };
 
 export default function ContactPage() {
   return (
     <main className="relative min-h-screen bg-background">
+      <JsonLd data={contactPageSchema} />
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       {/* Subtle grid background */}
       <div
         aria-hidden

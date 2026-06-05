@@ -236,6 +236,7 @@ export default function About() {
                       alt="North GTA steel building project"
                       fill
                       priority
+                      sizes="(max-width: 1024px) 100vw, 40vw"
                       className="object-cover brightness-75 contrast-125 grayscale transition-all duration-700 group-hover:scale-105 group-hover:brightness-90"
                     />
 

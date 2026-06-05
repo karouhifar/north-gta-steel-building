@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
+import { VENDOR_NAME, VENDOR_URL } from "@/lib/site";
 
 const buildingLinks = [
   { label: "Commercial", href: "#commercial" },
@@ -178,6 +179,19 @@ export default function Footer() {
             <span className="font-mono text-xs uppercase text-shadow-steel-dark">
               Built with Canadian Steel
             </span>
+
+            <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
+              —
+            </span>
+
+            <Link
+              href={VENDOR_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-foreground"
+            >
+              Website by {VENDOR_NAME}
+            </Link>
 
             <div className="h-2 w-2 bg-steel-red" />
           </div>
