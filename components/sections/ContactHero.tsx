@@ -15,8 +15,8 @@ const CONTACT_ITEMS = [
   {
     icon: Mail,
     label: "Email",
-    value: "estimates@northgtasteel.ca",
-    href: "mailto:estimates@northgtasteel.ca",
+    value: "ngsbuildings@gmail.com",
+    href: "mailto:ngsbuildings@gmail.com",
     external: false,
   },
   {

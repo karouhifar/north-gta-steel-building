@@ -1,16 +1,18 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
+
 import { VENDOR_NAME, VENDOR_URL } from "@/lib/site";
+import LogoImg from "@/public/images/logo/markLogo.png";
 
 const buildingLinks = [
-  { label: "Commercial", href: "#commercial" },
-  { label: "Industrial", href: "#industrial" },
-  { label: "Agricultural", href: "#agricultural" },
-  { label: "Aviation", href: "#aviation" },
-  { label: "Residential", href: "#residential" },
+  { label: "Commercial", href: "/categories/commercial" },
+  { label: "Industrial", href: "/categories/industrial" },
+  { label: "Agricultural", href: "/categories/agricultural" },
+  { label: "Engineering Design", href: "/categories/engineering-design" },
 ];
 
 const companyLinks = [
@@ -28,7 +30,7 @@ const contactItems = [
   },
   {
     icon: Mail,
-    label: "estimates@northgtasteel.ca",
+    label: "ngsbuildings@gmail.com",
   },
   {
     icon: MapPin,
@@ -39,9 +41,15 @@ const contactItems = [
 function Logo() {
   return (
     <Link href="/" className="flex items-center gap-3">
-      <div className="flex h-8 w-8 items-center justify-center bg-steel-red">
-        <div className="h-0 w-0 rotate-180 border-x-[6px] border-b-[10px] border-x-transparent border-b-white" />
-      </div>
+      <Image
+        src={LogoImg}
+        alt="North GTA Steel Logo"
+        width={50}
+        height={50}
+        priority
+        sizes="100vw"
+        className="object-cover object-center opacity-100"
+      />
 
       <span className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground">
         North GTA Steel Buildings

@@ -664,7 +664,7 @@ export default function PrivacyPolicy() {
             >
               <div className="space-y-4">
                 <a
-                  href="mailto:estimates@northgtasteel.ca"
+                  href="mailto:ngsbuildings@gmail.com"
                   className="group flex items-start gap-5 border border-border bg-muted p-6 transition-colors hover:border-primary"
                 >
                   <Mail className="mt-1 size-6 shrink-0 text-primary" />
@@ -673,7 +673,7 @@ export default function PrivacyPolicy() {
                       Email
                     </p>
                     <p className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground transition-colors group-hover:text-primary">
-                      estimates@northgtasteel.ca
+                      ngsbuildings@gmail.com
                     </p>
                   </div>
                 </a>
