@@ -43,12 +43,28 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/logo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/logo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/logo/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/logo/favicon-256x256.png", sizes: "256x256", type: "image/png" },
+      {
+        url: "/images/logo/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      {
+        url: "/images/logo/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/images/logo/favicon-48x48.png",
+        sizes: "48x48",
+        type: "image/png",
+      },
+      {
+        url: "/images/logo/favicon-256x256.png",
+        sizes: "256x256",
+        type: "image/png",
+      },
     ],
-    apple: [{ url: "/logo/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/images/logo/apple-touch-icon.png", sizes: "180x180" }],
   },
   openGraph: {
     type: "website",
