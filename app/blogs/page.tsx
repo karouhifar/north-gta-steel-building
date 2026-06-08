@@ -2,6 +2,7 @@
 
 import { getAllPosts } from "@/lib/mdx";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -44,30 +45,45 @@ export default function BlogPage() {
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:shadow-md"
+            className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
           >
-            <p className="mb-3 text-sm text-gray-500">
-              {new Date(post.date).toLocaleDateString("en-CA", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
+            <div className="relative h-56 w-full">
+              <Image
+                src={post.image as string}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            </div>
 
-            <h2 className="text-2xl font-semibold">
-              <Link href={`/blogs/${post.slug}`} className="hover:text-red-600">
-                {post.title}
+            {/* flex-1 makes this fill the rest of the card height */}
+            <div className="flex flex-1 flex-col p-6">
+              <p className="mb-3 text-sm text-gray-500">
+                {new Date(post.date).toLocaleDateString("en-CA", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+
+              <h2 className="text-2xl font-semibold">
+                <Link
+                  href={`/blogs/${post.slug}`}
+                  className="hover:text-red-600"
+                >
+                  {post.title}
+                </Link>
+              </h2>
+
+              {/* mt-auto pushes this to the bottom regardless of title length */}
+              <Link
+                href={`/blogs/${post.slug}`}
+                className="mt-auto inline-block pt-5 font-semibold text-red-600"
+              >
+                Read article →
               </Link>
-            </h2>
-
-            <p className="mt-3 text-gray-600">{post.description}</p>
-
-            <Link
-              href={`/blogs/${post.slug}`}
-              className="mt-5 inline-block font-semibold text-red-600"
-            >
-              Read article →
-            </Link>
+            </div>
           </article>
         ))}
       </section>

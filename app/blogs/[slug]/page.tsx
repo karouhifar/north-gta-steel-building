@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getPostSlugs } from "@/lib/mdx";
 import { compileMDX } from "next-mdx-remote/rsc";
+import BackButton from "@/components/ui/back-button";
+import Image from "next/image";
+import remarkGfm from "remark-gfm";
 
 const siteUrl = "https://www.northgtasteel.ca";
 
@@ -72,7 +75,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   const { content } = await compileMDX({
     source: post.content,
-    options: { parseFrontmatter: true },
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: { remarkPlugins: [remarkGfm], rehypePlugins: [] },
+    },
   });
 
   const articleUrl = `${siteUrl}/blogs/${post.meta.slug}`;
@@ -104,15 +110,22 @@ export default async function BlogPostPage({ params }: Props) {
   };
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20">
+    <main className="relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(jsonLd),
         }}
       />
+      {/* Sticky on mobile, fixed to the left gutter on desktop */}
+      <div
+        className="mx-auto max-w-3xl px-6 pt-6 
+      lg:sticky lg:inset-x-auto lg:left-50 lg:top-50 lg:mx-0 lg:px-0 lg:pt-0"
+      >
+        <BackButton />
+      </div>
 
-      <article>
+      <article className="mx-auto max-w-3xl px-6 pb-20 pt-2 lg:pt-20">
         <p className="text-sm font-semibold uppercase tracking-wide text-red-600">
           {post.meta.category}
         </p>
@@ -137,7 +150,19 @@ export default async function BlogPostPage({ params }: Props) {
           })}
         </time>
 
-        <div className="mt-12">{content}</div>
+        <Image
+          src={post.meta.image as string}
+          alt={post.meta.title}
+          width={0}
+          height={0}
+          className="h-auto w-full rounded-3xl"
+          sizes="(max-width: 768px) 100vw, 33vw"
+          priority
+        />
+
+        <div className="mt-12 prose prose-lg prose-zinc max-w-none">
+          {content}
+        </div>
       </article>
     </main>
   );

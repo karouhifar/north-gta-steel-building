@@ -13,6 +13,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "www.steelcobuildings.com",
       },
+      {
+        protocol: "https",
+        hostname: "d32bczqlkgra6r.cloudfront.net",
+      },
     ],
   },
 };
