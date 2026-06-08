@@ -164,7 +164,7 @@ export const AnimatedThemeToggler = ({
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const handleSystemChange = (e: MediaQueryListEvent) => {
       if (localStorage.getItem("theme")) return; // user has a choice; respect it
-      console.log("System theme changed, updating:", e.matches);
+
       document.documentElement.classList.toggle("dark", e.matches);
       setIsDark(e.matches);
     };
