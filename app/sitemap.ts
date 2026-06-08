@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { buildingCategories } from "@/data/categories";
-import { blogPosts } from "@/data/blogs";
+import { getAllPosts } from "@/lib/mdx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-
+  const posts = getAllPosts();
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${SITE_URL}/`,
@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+  const blogUrls: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${SITE_URL}/blogs/${post.slug}`,
     lastModified: new Date(post.updatedAt || post.date),
     changeFrequency: "monthly",
