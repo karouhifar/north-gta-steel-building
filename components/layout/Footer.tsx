@@ -26,7 +26,7 @@ const companyLinks = [
 const contactItems = [
   {
     icon: Phone,
-    label: "1-416-505-1371",
+    label: "1-647-744-7212",
   },
   {
     icon: Mail,

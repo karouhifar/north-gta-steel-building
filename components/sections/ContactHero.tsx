@@ -8,8 +8,8 @@ const CONTACT_ITEMS = [
   {
     icon: Phone,
     label: "Phone",
-    value: "(416) 505-1371",
-    href: "tel:+14165051371",
+    value: "(647) 744-7212",
+    href: "tel:+16477447212",
     external: false,
   },
   {

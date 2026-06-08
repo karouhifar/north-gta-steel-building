@@ -86,7 +86,7 @@ export function StepContact() {
           <Input
             id="phone"
             type="tel"
-            placeholder="(416) 555-0199"
+            placeholder="(647) 744-7212"
             className={inputClass(!!errors.phone)}
             {...register("phone")}
           />

@@ -19,8 +19,8 @@ export const LOCALE = "en_CA";
 export const LANG = "en-CA";
 
 // NAP — sourced from the live site (Footer / ContactHero), not invented.
-export const PHONE = "+14165051371";
-export const PHONE_DISPLAY = "(416) 505-1371";
+export const PHONE = "+16477447212";
+export const PHONE_DISPLAY = "(647) 744-7212";
 export const EMAIL = "ngsbuildings@gmail.com";
 export const REGION = "ON";
 export const COUNTRY = "CA";

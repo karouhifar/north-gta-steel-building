@@ -69,6 +69,11 @@ const navLinks: NavLink[] = [
         href: "/service-areas",
         description: "Ontario coverage and local service areas",
       },
+      {
+        label: "Blogs",
+        href: "/blogs",
+        description: "Latest news and updates from our team",
+      },
     ],
   },
   {
@@ -283,7 +288,7 @@ export default function Header() {
           className="hidden items-center gap-6 lg:flex"
         >
           <span className="hidden font-mono text-xs tracking-wide text-muted-foreground xl:block">
-            1-416-505-1371
+            1-647-744-7212
           </span>
 
           <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
@@ -422,7 +427,7 @@ export default function Header() {
 
               <div className="space-y-4">
                 <p className="font-mono text-xs text-muted-foreground">
-                  1-416-505-1371
+                  1-647-744-7212
                 </p>
 
                 <Button

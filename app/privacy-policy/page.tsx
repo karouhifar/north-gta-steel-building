@@ -679,7 +679,7 @@ export default function PrivacyPolicy() {
                 </a>
 
                 <a
-                  href="tel:+14165051371"
+                  href="tel:+16477447212"
                   className="group flex items-start gap-5 border border-border bg-muted p-6 transition-colors hover:border-primary"
                 >
                   <Phone className="mt-1 size-6 shrink-0 text-primary" />
@@ -688,7 +688,7 @@ export default function PrivacyPolicy() {
                       Phone
                     </p>
                     <p className="font-clash text-lg font-semibold uppercase tracking-tight text-foreground transition-colors group-hover:text-primary">
-                      (416) 505-1371
+                      (647) 744-7212
                     </p>
                   </div>
                 </a>
