@@ -167,26 +167,22 @@ export default function Footer() {
           }}
           className="flex flex-col items-center justify-between gap-4 border-t border-steel-gray pt-8 lg:flex-row"
         >
-          <p className="text-center font-mono text-xs uppercase text-shadow-steel-dark lg:text-left">
-            © {new Date().getFullYear()} North GTA Steel Ltd. All rights
-            reserved.
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+          <div className="flex flex-col justify-center gap-2">
+            <p className="text-center font-mono text-xs uppercase text-shadow-steel-dark lg:text-left">
+              © {new Date().getFullYear()} North GTA Steel Building Inc. All
+              rights reserved.
+            </p>
+            <p className="font-mono text-xs uppercase text-shadow-steel-dark">
+              Built with Canadian Steel
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/privacy-policy"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-foreground"
+              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
             >
               Privacy Policy
             </Link>
-
-            <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
-              —
-            </span>
-
-            <span className="font-mono text-xs uppercase text-shadow-steel-dark">
-              Built with Canadian Steel
-            </span>
 
             <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
               —
@@ -196,11 +192,19 @@ export default function Footer() {
               href={VENDOR_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-foreground"
+              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
             >
               Website by {VENDOR_NAME}
             </Link>
-
+            <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
+              —
+            </span>
+            <Link
+              href="/sitemap.xml"
+              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
+            >
+              Sitemap
+            </Link>
             <div className="h-2 w-2 bg-steel-red" />
           </div>
         </motion.div>
