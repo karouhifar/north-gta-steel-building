@@ -23,8 +23,8 @@ import { QuoteUI } from "../ui/quoteUI";
 export default function QuoteSection() {
   return (
     <QuoteUI id="quote">
-      <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-        <div className="grid grid-cols-12 items-center gap-8">
+      <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-8">
           {/* Left content */}
           <motion.div
             initial={{ opacity: 0, x: -64 }}
@@ -34,19 +34,19 @@ export default function QuoteSection() {
               duration: 0.9,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="col-span-12 lg:col-span-7"
+            className="min-w-0 lg:col-span-7"
           >
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-primary-foreground/60">
+            <p className="mb-4 font-mono text-[11px] uppercase tracking-widest text-primary-foreground/60 sm:text-xs">
               [004] Start Your Build
             </p>
 
-            <h2 className="mb-6 font-clash text-5xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-7xl xl:text-8xl">
+            <h2 className="mb-5 font-clash text-[clamp(3rem,14vw,5.25rem)] font-bold uppercase leading-none tracking-tight text-primary-foreground sm:mb-6 sm:text-6xl lg:text-7xl xl:text-8xl">
               Get A Free
               <br />
               Estimate_
             </h2>
 
-            <p className="max-w-lg font-general text-base leading-relaxed text-primary-foreground/80">
+            <p className="max-w-xl font-general text-sm leading-relaxed text-primary-foreground/80 sm:text-base lg:max-w-lg">
               Three steps. No obligation. Our engineering team will prepare a
               complete structural specification and budgetary estimate for your
               project within 48 hours.
@@ -63,33 +63,33 @@ export default function QuoteSection() {
               delay: 0.15,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="col-span-12 lg:col-span-5"
+            className="min-w-0 lg:col-span-5"
           >
-            <Card className="relative overflow-hidden border border-border bg-card/95 shadow-2xl backdrop-blur">
-              <CardContent className="relative p-6 sm:p-8 lg:p-10">
-                <div className="mb-8 flex items-start justify-between gap-6 border-b border-border pb-6">
+            <Card className="relative overflow-hidden rounded-2xl border border-border bg-card/95 shadow-2xl backdrop-blur sm:rounded-3xl lg:rounded-none">
+              <CardContent className="relative p-5 sm:p-8 lg:p-10">
+                <div className="mb-6 flex flex-col gap-4 border-b border-border pb-6 sm:mb-8 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                   <div>
-                    <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
+                    <p className="mb-2 font-mono text-[11px] uppercase tracking-widest text-steel-red sm:text-xs">
                       Estimate Form
                     </p>
 
-                    <h3 className="font-clash text-2xl font-bold uppercase leading-none tracking-tight text-foreground">
+                    <h3 className="font-clash text-2xl font-bold uppercase leading-none tracking-tight text-foreground sm:text-3xl lg:text-2xl">
                       Building Size
                     </h3>
                   </div>
 
-                  <div className="hidden rounded-full border border-border px-3 py-1 font-mono text-xs uppercase tracking-widest text-foreground sm:block">
+                  <div className="w-fit rounded-full border border-border px-3 py-1 font-mono text-[10px] uppercase tracking-widest text-foreground sm:text-xs">
                     48hr Reply
                   </div>
                 </div>
 
-                <form className="space-y-6">
+                <form className="space-y-5 sm:space-y-6">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     {buildingSizeFields.map((field) => (
-                      <div key={field.id} className="space-y-2">
+                      <div key={field.id} className="min-w-0 space-y-2">
                         <Label
                           htmlFor={field.id}
-                          className="font-mono text-xs uppercase tracking-wider text-muted-foreground"
+                          className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs"
                         >
                           {field.label}
                         </Label>
@@ -99,52 +99,19 @@ export default function QuoteSection() {
                           name={field.id}
                           type="number"
                           placeholder={field.placeholder}
-                          className="
-                h-auto
-                rounded-xl
-                border-border
-                bg-background/70
-                px-4
-                py-3
-                font-mono
-                text-sm
-                text-foreground
-                placeholder:text-muted-foreground
-                transition-all
-                duration-300
-                focus-visible:border-steel-red
-                focus-visible:ring-2
-                focus-visible:ring-steel-red/30
-              "
+                          className="h-auto rounded-xl border-border bg-background/70 px-4 py-3 font-mono text-sm text-foreground placeholder:text-muted-foreground transition-all duration-300 focus-visible:border-steel-red focus-visible:ring-2 focus-visible:ring-steel-red/30"
                         />
                       </div>
                     ))}
                   </div>
 
                   <div className="space-y-2">
-                    <Label className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                    <Label className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs">
                       Building Use
                     </Label>
 
                     <Select defaultValue={buildingUseOptions[0]}>
-                      <SelectTrigger
-                        className="
-              h-auto
-              rounded-xl
-              border-border
-              bg-background/70
-              px-4
-              py-3
-              font-mono
-              text-sm
-              text-foreground
-              transition-all
-              duration-300
-              focus:border-steel-red
-              focus:ring-2
-              focus:ring-steel-red/30
-            "
-                      >
+                      <SelectTrigger className="h-auto rounded-xl border-border bg-background/70 px-4 py-3 font-mono text-sm text-foreground transition-all duration-300 focus:border-steel-red focus:ring-2 focus:ring-steel-red/30">
                         <SelectValue placeholder="Select building use" />
                       </SelectTrigger>
 
@@ -153,14 +120,7 @@ export default function QuoteSection() {
                           <SelectItem
                             key={option}
                             value={option}
-                            className="
-                  font-mono
-                  text-sm
-                  focus:bg-steel-red
-                  focus:text-primary-foreground
-                  data-[highlighted]:bg-steel-red
-                  data-[highlighted]:text-primary-foreground
-                "
+                            className="font-mono text-sm focus:bg-steel-red focus:text-primary-foreground data-[highlighted]:bg-steel-red data-[highlighted]:text-primary-foreground"
                           >
                             {option}
                           </SelectItem>
@@ -170,42 +130,24 @@ export default function QuoteSection() {
                   </div>
 
                   <div className="rounded-xl border border-border bg-background/60 p-4">
-                    <Label className="mb-2 block font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                    <Label className="mb-2 block font-mono text-[11px] uppercase tracking-wider text-muted-foreground sm:text-xs">
                       Province
                     </Label>
 
-                    <p className="font-general text-base leading-relaxed text-foreground">
+                    <p className="font-general text-sm leading-relaxed text-foreground sm:text-base">
                       Ontario
                     </p>
                   </div>
 
                   <Button
                     type="submit"
-                    className="
-          h-auto
-          w-full
-          rounded-xl
-          bg-steel-red
-          px-8
-          py-4
-          font-general
-          text-xs
-          font-semibold
-          uppercase
-          tracking-widest
-          text-primary-foreground
-          transition-all
-          duration-300
-          hover:-translate-y-0.5
-          hover:bg-foreground
-          hover:text-background
-        "
+                    className="h-auto w-full rounded-xl bg-steel-red px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-foreground hover:text-background sm:px-8"
                   >
                     Get Free Estimate
                     <ArrowRight className="ml-3 size-4" />
                   </Button>
 
-                  <p className="text-center font-mono text-xs text-muted-foreground">
+                  <p className="text-center font-mono text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
                     No obligation — Response within 48 hours
                   </p>
                 </form>

@@ -122,12 +122,12 @@ export default function Project() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden bg-background text-foreground lg:py-32"
+      className="relative overflow-hidden bg-background py-16 text-foreground sm:py-20 lg:py-32"
     >
       {/* Optional grid texture */}
       <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.08]" />
 
-      <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
+      <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 48 }}
@@ -137,22 +137,22 @@ export default function Project() {
             duration: 0.85,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="mb-16 flex items-end justify-between"
+          className="mb-10 flex flex-col gap-6 sm:mb-12 lg:mb-16 lg:flex-row lg:items-end lg:justify-between"
         >
-          <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-steel-red">
+          <div className="min-w-0">
+            <p className="mb-3 font-mono text-[11px] uppercase tracking-widest text-steel-red sm:text-xs">
               [002] Selected Works
             </p>
 
-            <h2 className="font-clash text-5xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-7xl xl:text-8xl">
+            <h2 className="font-clash text-[clamp(3rem,14vw,5rem)] font-bold uppercase leading-none tracking-tight text-foreground sm:text-6xl lg:text-7xl xl:text-8xl">
               Project
               <br />
               Archive_
             </h2>
           </div>
 
-          <div className="hidden lg:block">
-            <p className="max-w-xs text-right font-general text-sm leading-relaxed text-steel-light">
+          <div className="max-w-xl lg:max-w-xs">
+            <p className="font-general text-sm leading-relaxed text-muted-foreground lg:text-right lg:text-steel-light">
               A curated selection of our most demanding structural projects.
               Each one a testament to engineering without compromise.
             </p>
@@ -160,16 +160,16 @@ export default function Project() {
         </motion.div>
 
         {/* Project grid */}
-        <div className="grid grid-cols-12 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12 lg:gap-6">
           {/* Large feature card */}
           {featureProject && (
-            <div className="col-span-12 lg:col-span-7">
+            <div className="min-w-0 md:col-span-2 lg:col-span-7">
               <ProjectCard project={featureProject} size="large" delay={0.05} />
             </div>
           )}
 
           {/* Two stacked cards */}
-          <div className="col-span-12 flex flex-col gap-4 lg:col-span-5 lg:gap-6">
+          <div className="flex min-w-0 flex-col gap-4 md:col-span-2 lg:col-span-5 lg:gap-6">
             {stackedProjects.map((project, index) => (
               <ProjectCard
                 key={project.code}
@@ -182,7 +182,7 @@ export default function Project() {
 
           {/* Bottom three cards */}
           {bottomProjects.map((project, index) => (
-            <div key={project.code} className="col-span-12 lg:col-span-4">
+            <div key={project.code} className="min-w-0 lg:col-span-4">
               <ProjectCard
                 project={project}
                 size="default"
@@ -202,14 +202,17 @@ export default function Project() {
             delay: 0.2,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="mt-12 flex justify-center"
+          className="mt-10 flex justify-center sm:mt-12"
         >
           <Button
             asChild
             variant="outline"
-            className="h-auto rounded-none border-steel-mid bg-transparent px-10 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
+            className="h-auto w-full rounded-none border-steel-mid bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red sm:w-auto sm:px-10"
           >
-            <Link href="#all-projects">
+            <Link
+              href="#all-projects"
+              className="flex items-center justify-center"
+            >
               View Full Archive
               <ArrowRight className="ml-3 size-4" />
             </Link>
