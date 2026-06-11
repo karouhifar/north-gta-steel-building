@@ -14,7 +14,7 @@ export default function BackButton() {
       whileHover="hover"
       whileTap="tap"
       className=" pointer-events-auto cursor-pointer inline-flex items-center gap-2 text-sm
-       text-gray-600 hover:text-gray-900 border-e-red-500 border-e-2 transition-colors"
+       text-muted-foreground hover:text-foreground border-e-steel-red border-e-2 transition-colors"
     >
       <motion.span
         variants={{

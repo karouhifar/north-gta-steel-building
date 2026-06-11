@@ -128,7 +128,7 @@ function LogoSection() {
           width={220}
           height={70}
           priority
-          className="h-auto w-30 object-contain transition duration-700 group-hover:scale-105 lg:w-35"
+          className="h-auto w-30 object-contain transition duration-700 group-hover:scale-105 lg:w-32 xl:w-35"
         />
       </motion.div>
     </Link>
@@ -145,7 +145,7 @@ export default function Header() {
       animate="visible"
       className="fixed left-0 top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur"
     >
-      <nav className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-6 lg:px-12">
+      <nav className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-6 lg:px-8 xl:px-12">
         <motion.div variants={itemVariants}>
           <LogoSection />
         </motion.div>
@@ -153,7 +153,7 @@ export default function Header() {
         {/* Desktop nav */}
         <motion.div
           variants={itemVariants}
-          className="hidden items-center gap-10 lg:flex"
+          className="hidden items-center gap-6 lg:flex xl:gap-10"
         >
           {navLinks.map((link) => {
             const isOpen = resourcesOpen === link.label;
@@ -285,7 +285,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <motion.div
           variants={itemVariants}
-          className="hidden items-center gap-6 lg:flex"
+          className="hidden items-center gap-4 lg:flex xl:gap-6"
         >
           <span className="hidden font-mono text-xs tracking-wide text-muted-foreground xl:block">
             1-647-744-7212
@@ -341,7 +341,7 @@ export default function Header() {
                     },
                   },
                 }}
-                className="flex flex-col gap-5"
+                className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto"
               >
                 {navLinks.map((link) => {
                   if (link.children) {

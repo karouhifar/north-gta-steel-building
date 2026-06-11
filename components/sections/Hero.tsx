@@ -91,7 +91,7 @@ export default function Hero() {
                 }}
                 className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs"
               >
-                Pre-Engineered Steel Structures — Since 2025
+                Pre-Engineered Steel Structures
               </motion.p>
             </div>
 

@@ -60,8 +60,8 @@ export function StepBuildingType() {
                 className={cn(
                   "flex h-12 w-12 shrink-0 items-center justify-center transition-colors",
                   isSelected
-                    ? "bg-steel-red text-white"
-                    : "bg-secondary text-foreground group-hover:bg-steel-red group-hover:text-white",
+                    ? "bg-steel-red text-primary-foreground"
+                    : "bg-secondary text-foreground group-hover:bg-steel-red group-hover:text-primary-foreground",
                 )}
               >
                 <Icon className="h-6 w-6" strokeWidth={1.75} />

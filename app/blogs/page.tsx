@@ -27,7 +27,7 @@ export default function BlogPage() {
   return (
     <main className="mx-auto max-w-6xl px-6 py-20">
       <section className="mb-12">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-red-600">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-steel-red">
           North GTA Steel Blog
         </p>
 
@@ -35,19 +35,19 @@ export default function BlogPage() {
           Steel Building Resources for Ontario
         </h1>
 
-        <p className="mt-5 max-w-2xl text-lg text-gray-600">
+        <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
           Learn about steel building costs, permits, timelines, design options,
           and pre-engineered building systems in Ontario.
         </p>
       </section>
 
-      <section className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <article
             key={post.slug}
-            className="flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md"
+            className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition hover:shadow-md"
           >
-            <div className="relative h-56 w-full">
+            <div className="relative h-44 w-full sm:h-52 md:h-56">
               <Image
                 src={post.image as string}
                 alt={post.title}
@@ -59,7 +59,7 @@ export default function BlogPage() {
 
             {/* flex-1 makes this fill the rest of the card height */}
             <div className="flex flex-1 flex-col p-6">
-              <p className="mb-3 text-sm text-gray-500">
+              <p className="mb-3 text-sm text-muted-foreground">
                 {new Date(post.date).toLocaleDateString("en-CA", {
                   year: "numeric",
                   month: "long",
@@ -70,7 +70,7 @@ export default function BlogPage() {
               <h2 className="text-2xl font-semibold">
                 <Link
                   href={`/blogs/${post.slug}`}
-                  className="hover:text-red-600"
+                  className="hover:text-steel-red"
                 >
                   {post.title}
                 </Link>
@@ -79,7 +79,7 @@ export default function BlogPage() {
               {/* mt-auto pushes this to the bottom regardless of title length */}
               <Link
                 href={`/blogs/${post.slug}`}
-                className="mt-auto inline-block pt-5 font-semibold text-red-600"
+                className="mt-auto inline-block pt-5 font-semibold text-steel-red"
               >
                 Read article →
               </Link>

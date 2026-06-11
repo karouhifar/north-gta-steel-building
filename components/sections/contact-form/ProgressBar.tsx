@@ -42,7 +42,7 @@ export function ProgressBar({ currentStep }: { currentStep: number }) {
         />
         {/* Leading edge glow */}
         <motion.div
-          className="absolute top-0 h-full w-2 bg-white/70 mix-blend-overlay"
+          className="absolute top-0 h-full w-2 bg-primary-foreground/70 mix-blend-overlay"
           initial={false}
           animate={{ left: `calc(${pct}% - 8px)` }}
           transition={{ type: "spring", stiffness: 120, damping: 22 }}

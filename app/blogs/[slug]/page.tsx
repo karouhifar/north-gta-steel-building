@@ -126,21 +126,21 @@ export default async function BlogPostPage({ params }: Props) {
       </div>
 
       <article className="mx-auto max-w-3xl px-6 pb-20 pt-2 lg:pt-20">
-        <p className="text-sm font-semibold uppercase tracking-wide text-red-600">
+        <p className="text-sm font-semibold uppercase tracking-wide text-steel-red">
           {post.meta.category}
         </p>
 
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-gray-900 md:text-5xl">
+        <h1 className="mt-3 text-4xl font-bold tracking-tight text-foreground md:text-5xl">
           {post.meta.title}
         </h1>
 
-        <p className="mt-5 text-lg leading-8 text-gray-600">
+        <p className="mt-5 text-lg leading-8 text-muted-foreground">
           {post.meta.description}
         </p>
 
         <time
           dateTime={post.meta.date}
-          className="mt-5 block text-sm text-gray-500"
+          className="mt-5 block text-sm text-muted-foreground"
         >
           Published on{" "}
           {new Date(post.meta.date).toLocaleDateString("en-CA", {
@@ -160,7 +160,7 @@ export default async function BlogPostPage({ params }: Props) {
           priority
         />
 
-        <div className="mt-12 prose prose-lg prose-zinc max-w-none">
+        <div className="prose prose-lg prose-zinc mt-12 max-w-none dark:prose-invert">
           {content}
         </div>
       </article>

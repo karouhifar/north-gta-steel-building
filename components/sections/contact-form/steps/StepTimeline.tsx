@@ -47,7 +47,7 @@ export function StepTimeline() {
                 "group relative flex flex-col items-start gap-1 border-2 px-5 py-4 transition-all",
                 "min-w-35 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                 isSelected
-                  ? "border-steel-red bg-steel-red text-white"
+                  ? "border-steel-red bg-steel-red text-primary-foreground"
                   : "border-border bg-card hover:border-steel-red",
               )}
             >
@@ -57,7 +57,7 @@ export function StepTimeline() {
               <span
                 className={cn(
                   "font-mono text-[10px] uppercase tracking-widest",
-                  isSelected ? "text-white/80" : "text-muted-foreground",
+                  isSelected ? "text-primary-foreground/80" : "text-muted-foreground",
                 )}
               >
                 {opt.sub}

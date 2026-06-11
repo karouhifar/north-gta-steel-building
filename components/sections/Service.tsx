@@ -42,7 +42,7 @@ export default function ServicesSection() {
               [003]
             </p>
 
-            <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+            <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Capabilities
             </p>
           </motion.div>
@@ -85,27 +85,27 @@ export default function ServicesSection() {
                   index === 1 || index === 3 ? "lg:mt-8" : ""
                 }`}
               >
-                <Card className="group h-full rounded-none border border-steel-mid bg-transparent shadow-none transition-colors duration-300 hover:border-steel-red">
+                <Card className="group h-full rounded-none border border-border bg-transparent shadow-none transition-colors duration-300 hover:border-steel-red">
                   <CardContent className="flex h-full flex-col p-8">
                     <div className="mb-8 flex items-center justify-between">
-                      <span className="font-mono text-xs text-steel-light">
+                      <span className="font-mono text-xs text-muted-foreground">
                         {service.number}
                       </span>
 
-                      <Icon className="size-6 text-steel-light transition-colors duration-300 group-hover:text-steel-red" />
+                      <Icon className="size-6 text-muted-foreground transition-colors duration-300 group-hover:text-steel-red" />
                     </div>
 
                     <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
                       {service.title}
                     </h3>
 
-                    <p className="font-general text-sm leading-relaxed text-steel-light">
+                    <p className="font-general text-sm leading-relaxed text-muted-foreground">
                       {service.description}
                     </p>
 
                     <div className="mt-auto pt-8">
-                      <div className="border-t border-steel-gray pt-4">
-                        <p className="font-mono text-xs uppercase text-steel-light">
+                      <div className="border-t border-border pt-4">
+                        <p className="font-mono text-xs uppercase text-muted-foreground">
                           {service.startingFrom}
                         </p>
                       </div>

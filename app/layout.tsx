@@ -83,7 +83,10 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
 };
 
 export default function RootLayout({
@@ -94,6 +97,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-CA"
+      suppressHydrationWarning
       className={cn(
         "h-full",
         "antialiased",
@@ -104,6 +108,13 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
+        {/* Apply saved/system theme before paint to avoid a light flash. Mirrors animated-theme-toggler. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(()=>{try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();",
+          }}
+        />
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
         <Header />

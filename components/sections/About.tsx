@@ -33,11 +33,11 @@ export default function About() {
             }}
             className="col-span-12 lg:col-span-2"
           >
-            <p className="font-mono text-xs uppercase tracking-widest text-steel-light">
+            <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
               [001]
             </p>
 
-            <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+            <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
               Manifesto
             </p>
           </motion.div>
@@ -57,7 +57,7 @@ export default function About() {
             <h2 className="font-clash text-4xl font-semibold uppercase leading-tight tracking-tight text-foreground lg:text-6xl xl:text-7xl">
               We don&apos;t put up
               <br />
-              <span className="text-steel-light">buildings.</span>
+              <span className="text-muted-foreground">buildings.</span>
               <br />
               We engineer
               <br />
@@ -77,9 +77,9 @@ export default function About() {
             }}
             className="col-span-12 flex flex-col justify-end lg:col-span-3"
           >
-            <Card className="rounded-none ring-0 border-x-0 border-b-0 border-t border-steel-mid bg-transparent shadow-none">
+            <Card className="rounded-none ring-0 border-x-0 border-b-0 border-t border-border bg-transparent shadow-none">
               <CardContent className="px-0 pb-0 pt-6">
-                <p className="font-general text-sm leading-relaxed text-steel-light">
+                <p className="font-general text-sm leading-relaxed text-muted-foreground">
                   Every structure begins with raw Canadian steel. Cold-formed.
                   Pre-engineered. Assembled with precision tolerances measured
                   in millimeters. This isn&apos;t construction — it&apos;s

@@ -111,17 +111,17 @@ const serviceHighlights = [
 
 export default function About() {
   return (
-    <main className="bg-steel-black text-foreground">
+    <main className="bg-background text-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-steel-gray bg-steel-black py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.08]" />
 
         <motion.div
           initial={{ opacity: 0, x: -120 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-steel-gray/30 lg:block"
-          style={{ fontSize: "18vw" }}
+          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-foreground/5 lg:block"
+          style={{ fontSize: "clamp(96px, 18vw, 320px)" }}
         >
           Ontario Steel
         </motion.div>
@@ -176,7 +176,7 @@ export default function About() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="max-w-2xl font-general text-base leading-relaxed text-steel-light lg:text-lg"
+                className="max-w-2xl font-general text-base leading-relaxed text-muted-foreground lg:text-lg"
               >
                 North GTA Steel Buildings helps Ontario property owners,
                 farmers, contractors, and businesses plan, supply, and build
@@ -209,7 +209,7 @@ export default function About() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-auto rounded-none border-steel-mid bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
+                  className="h-auto rounded-none border-border bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
                 >
                   <Link href="/#services">Explore Building Types</Link>
                 </Button>
@@ -229,7 +229,7 @@ export default function About() {
               <div className="relative">
                 <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-steel-red" />
 
-                <Card className="relative overflow-hidden rounded-[2rem] border border-steel-mid bg-steel-dark p-2 shadow-2xl">
+                <Card className="relative overflow-hidden rounded-[2rem] border border-border bg-muted p-2 shadow-2xl">
                   <CardContent className="group relative aspect-[4/5] overflow-hidden rounded-[1.5rem] p-0 sm:aspect-[16/11] lg:aspect-[4/5]">
                     <Image
                       src={HandymanImg}
@@ -251,7 +251,7 @@ export default function About() {
                         Planning. Supply. Permit-Aware Support.
                       </h2>
 
-                      <p className="mt-3 max-w-sm font-general text-sm leading-relaxed text-steel-light">
+                      <p className="mt-3 max-w-sm font-general text-sm leading-relaxed text-muted-foreground">
                         A clearer path for steel garages, warehouses,
                         agricultural buildings, workshops, and commercial steel
                         structures.
@@ -266,7 +266,7 @@ export default function About() {
       </section>
 
       {/* Main statement */}
-      <section className="border-b border-steel-gray bg-steel-black py-24 lg:py-32">
+      <section className="border-b border-border bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="grid grid-cols-12 gap-8">
             <motion.div
@@ -276,10 +276,10 @@ export default function About() {
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
               className="col-span-12 lg:col-span-2"
             >
-              <p className="font-mono text-xs uppercase tracking-widest text-steel-light">
+              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 [001]
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 Who We Are
               </p>
             </motion.div>
@@ -298,7 +298,7 @@ export default function About() {
               <h2 className="font-clash text-4xl font-semibold uppercase leading-tight tracking-tight text-foreground lg:text-6xl xl:text-7xl">
                 We do more than
                 <br />
-                <span className="text-steel-light">sell steel packages.</span>
+                <span className="text-muted-foreground">sell steel packages.</span>
                 <br />
                 We help you build
                 <br />
@@ -317,8 +317,8 @@ export default function About() {
               }}
               className="col-span-12 flex flex-col justify-end lg:col-span-3"
             >
-              <div className="border-t border-steel-mid pt-6">
-                <p className="font-general text-sm leading-relaxed text-steel-light">
+              <div className="border-t border-border pt-6">
+                <p className="font-general text-sm leading-relaxed text-muted-foreground">
                   We help Ontario buyers understand what their site, use,
                   budget, and municipality may require before they order. Our
                   goal is to make every project more practical, more durable,
@@ -331,7 +331,7 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-steel-gray bg-steel-dark py-12">
+      <section className="border-b border-border bg-muted py-12">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             {stats.map((stat, index) => (
@@ -345,13 +345,13 @@ export default function About() {
                   delay: index * 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="border-t border-steel-mid pt-5"
+                className="border-t border-border pt-5"
               >
                 <p className="font-clash text-4xl font-bold uppercase tracking-tight text-foreground lg:text-5xl">
                   {stat.value}
                 </p>
 
-                <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+                <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                   {stat.label}
                 </p>
               </motion.div>
@@ -361,7 +361,7 @@ export default function About() {
       </section>
 
       {/* Why choose us */}
-      <section className="relative overflow-hidden border-b border-steel-gray bg-steel-black py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.05]" />
 
         <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
@@ -370,7 +370,7 @@ export default function About() {
               <p className="font-mono text-xs uppercase tracking-widest text-steel-red">
                 [002]
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-steel-light">
+              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                 Why Choose Us
               </p>
             </div>
@@ -400,21 +400,21 @@ export default function About() {
                     ease: [0.16, 1, 0.3, 1],
                   }}
                 >
-                  <Card className="group h-full rounded-none border border-steel-mid bg-transparent shadow-none transition-colors hover:border-steel-red">
+                  <Card className="group h-full rounded-none border border-border bg-transparent shadow-none transition-colors hover:border-steel-red">
                     <CardContent className="p-8">
                       <div className="mb-8 flex items-center justify-between">
-                        <span className="font-mono text-xs text-steel-light">
+                        <span className="font-mono text-xs text-muted-foreground">
                           0{index + 1}
                         </span>
 
-                        <Icon className="size-6 text-steel-light transition-colors group-hover:text-steel-red" />
+                        <Icon className="size-6 text-muted-foreground transition-colors group-hover:text-steel-red" />
                       </div>
 
                       <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
                         {value.title}
                       </h3>
 
-                      <p className="font-general text-sm leading-relaxed text-steel-light">
+                      <p className="font-general text-sm leading-relaxed text-muted-foreground">
                         {value.description}
                       </p>
                     </CardContent>
@@ -427,7 +427,7 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="border-b border-steel-gray bg-steel-dark py-24 lg:py-32">
+      <section className="border-b border-border bg-muted py-24 lg:py-32">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-12 lg:col-span-4">
@@ -444,7 +444,7 @@ export default function About() {
 
             <div className="col-span-12 lg:col-span-8">
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                <Card className="rounded-none border border-steel-mid bg-steel-black shadow-none">
+                <Card className="rounded-none border border-border bg-background shadow-none">
                   <CardContent className="p-8">
                     <CheckCircle2 className="mb-8 size-7 text-steel-red" />
 
@@ -452,7 +452,7 @@ export default function About() {
                       Our Mission
                     </h3>
 
-                    <p className="font-general text-sm leading-relaxed text-steel-light">
+                    <p className="font-general text-sm leading-relaxed text-muted-foreground">
                       To help Ontario property owners build strong, efficient,
                       and permit-ready steel buildings through clear guidance,
                       durable materials, and reliable project support.
@@ -460,7 +460,7 @@ export default function About() {
                   </CardContent>
                 </Card>
 
-                <Card className="rounded-none border border-steel-mid bg-steel-black shadow-none">
+                <Card className="rounded-none border border-border bg-background shadow-none">
                   <CardContent className="p-8">
                     <Building2 className="mb-8 size-7 text-steel-red" />
 
@@ -468,7 +468,7 @@ export default function About() {
                       Our Promise
                     </h3>
 
-                    <p className="font-general text-sm leading-relaxed text-steel-light">
+                    <p className="font-general text-sm leading-relaxed text-muted-foreground">
                       Built for Ontario. Engineered for decades. We help
                       customers avoid common mistakes by making the steel
                       building path more structured, transparent, and practical.
@@ -482,7 +482,7 @@ export default function About() {
       </section>
 
       {/* Process */}
-      <section className="bg-steel-black py-24 lg:py-32">
+      <section className="bg-background py-24 lg:py-32">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="mb-16">
             <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
@@ -509,7 +509,7 @@ export default function About() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <Card className="h-full rounded-none border border-steel-mid bg-steel-dark shadow-none">
+                <Card className="h-full rounded-none border border-border bg-muted shadow-none">
                   <CardContent className="p-8">
                     <p className="mb-8 font-mono text-xs uppercase tracking-widest text-steel-red">
                       {item.number}
@@ -519,7 +519,7 @@ export default function About() {
                       {item.title}
                     </h3>
 
-                    <p className="font-general text-sm leading-relaxed text-steel-light">
+                    <p className="font-general text-sm leading-relaxed text-muted-foreground">
                       {item.description}
                     </p>
                   </CardContent>
@@ -531,7 +531,7 @@ export default function About() {
       </section>
 
       {/* Services and building types */}
-      <section className="border-y border-steel-gray bg-steel-dark py-20">
+      <section className="border-y border-border bg-muted py-20">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="grid grid-cols-12 gap-10">
             <div className="col-span-12 lg:col-span-5">
@@ -545,7 +545,7 @@ export default function About() {
                 To Build_
               </h2>
 
-              <p className="mt-6 max-w-md font-general text-sm leading-relaxed text-steel-light">
+              <p className="mt-6 max-w-md font-general text-sm leading-relaxed text-muted-foreground">
                 Our support can include planning, design guidance, supply,
                 permit preparation, foundation coordination, insulation options,
                 and building erection support.
@@ -557,14 +557,14 @@ export default function About() {
                 {serviceHighlights.map((service) => (
                   <span
                     key={service}
-                    className="border border-steel-mid px-4 py-2 font-mono text-xs uppercase tracking-wider text-steel-light transition-colors hover:border-steel-red hover:text-steel-red"
+                    className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red"
                   >
                     {service}
                   </span>
                 ))}
               </div>
 
-              <div className="border-t border-steel-mid pt-8">
+              <div className="border-t border-border pt-8">
                 <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
                   Building Types
                 </p>
@@ -573,7 +573,7 @@ export default function About() {
                   {buildingTypes.map((type) => (
                     <span
                       key={type}
-                      className="border border-steel-mid bg-steel-black px-4 py-2 font-mono text-xs uppercase tracking-wider text-steel-light transition-colors hover:border-steel-red hover:text-steel-red"
+                      className="border border-border bg-background px-4 py-2 font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red"
                     >
                       {type}
                     </span>
@@ -586,7 +586,7 @@ export default function About() {
       </section>
 
       {/* Service area */}
-      <section className="border-b border-steel-gray bg-steel-black py-16">
+      <section className="border-b border-border bg-background py-16">
         <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
           <div className="grid grid-cols-12 items-center gap-8">
             <div className="col-span-12 lg:col-span-3">
@@ -599,7 +599,7 @@ export default function About() {
               <div className="flex items-start gap-4">
                 <MapPin className="mt-1 size-5 shrink-0 text-steel-red" />
 
-                <p className="max-w-3xl font-general text-base leading-relaxed text-steel-light">
+                <p className="max-w-3xl font-general text-base leading-relaxed text-muted-foreground">
                   We serve property owners, farmers, contractors, and businesses
                   across Ontario, with a strong focus on the Greater Toronto
                   Area, North GTA communities, rural Ontario properties, and

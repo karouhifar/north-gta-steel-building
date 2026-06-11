@@ -203,7 +203,7 @@ export function QuoteForm() {
               <Button
                 type="button"
                 onClick={next}
-                className="group h-12 rounded-none! bg-steel-red px-6 font-mono text-xs uppercase tracking-[0.2em] text-white hover:bg-steel-darkred"
+                className="group h-12 rounded-none! bg-steel-red px-6 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground hover:bg-steel-darkred"
               >
                 Continue
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -212,7 +212,7 @@ export function QuoteForm() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="group h-12 rounded-none! bg-steel-red px-6 font-mono text-xs uppercase tracking-[0.2em] text-white hover:bg-steel-darkred disabled:opacity-70"
+                className="group h-12 rounded-none! bg-steel-red px-6 font-mono text-xs uppercase tracking-[0.2em] text-primary-foreground hover:bg-steel-darkred disabled:opacity-70"
               >
                 {submitting ? (
                   <>

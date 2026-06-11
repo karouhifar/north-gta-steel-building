@@ -94,7 +94,7 @@ export default function PrivacyPolicy() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-foreground/[0.04] lg:block"
-          style={{ fontSize: "18vw" }}
+          style={{ fontSize: "clamp(96px, 18vw, 320px)" }}
         >
           Privacy
         </motion.div>

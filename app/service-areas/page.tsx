@@ -285,7 +285,7 @@ export default function ServiceAreas() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-foreground/5 lg:block"
-          style={{ fontSize: "16vw" }}
+          style={{ fontSize: "clamp(80px, 16vw, 300px)" }}
         >
           Ontario
         </motion.div>
@@ -497,7 +497,7 @@ export default function ServiceAreas() {
 
                   <div className="my-6 h-px bg-border" />
 
-                  <div className="max-h-175 space-y-3 overflow-y-auto pr-2">
+                  <div className="max-h-96 space-y-3 overflow-y-auto pr-2 lg:max-h-175">
                     {serviceCities.map((city) => {
                       const isOpen = openCity === city.slug;
 

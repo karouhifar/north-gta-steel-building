@@ -93,13 +93,13 @@ export function ContactHero() {
       {/* Contact details */}
       <motion.div
         variants={item}
-        className="grid grid-cols-2 gap-x-5 border-t-2 border-border"
+        className="grid grid-cols-1 gap-x-5 border-t-2 border-border sm:grid-cols-2"
       >
         {CONTACT_ITEMS.map((c) => {
           const Icon = c.icon;
           const content = (
             <div className="group flex items-start gap-4 border-b-2 border-border bg-transparent py-5 transition-colors hover:bg-secondary/40">
-              <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center border-2 border-border bg-card transition-colors group-hover:border-steel-red group-hover:bg-steel-red group-hover:text-white">
+              <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center border-2 border-border bg-card transition-colors group-hover:border-steel-red group-hover:bg-steel-red group-hover:text-primary-foreground">
                 <Icon className="h-4 w-4" strokeWidth={2} />
               </span>
               <div className="min-w-0 flex-1">

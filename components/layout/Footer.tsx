@@ -68,7 +68,7 @@ function FooterLink({
   return (
     <Link
       href={href}
-      className="font-general text-sm text-steel-light transition-colors hover:text-foreground"
+      className="font-general text-sm text-muted-foreground transition-colors hover:text-foreground"
     >
       {children}
     </Link>
@@ -95,7 +95,7 @@ export default function Footer() {
           <div className="col-span-12 lg:col-span-4">
             <Logo />
 
-            <p className="mt-6 max-w-sm font-general text-sm leading-relaxed text-steel-light">
+            <p className="mt-6 max-w-sm font-general text-sm leading-relaxed text-muted-foreground">
               Ontario&apos;s trusted steel building partner for commercial,
               agricultural, industrial, and custom steel structures.
             </p>
@@ -145,7 +145,7 @@ export default function Footer() {
                   <div key={item.label} className="flex items-center gap-3">
                     <Icon className="size-4 text-steel-red" />
 
-                    <span className="font-mono text-sm text-shadow-steel-dark">
+                    <span className="font-mono text-sm text-muted-foreground">
                       {item.label}
                     </span>
                   </div>
@@ -165,26 +165,26 @@ export default function Footer() {
             delay: 0.15,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="flex flex-col items-center justify-between gap-4 border-t border-steel-gray pt-8 lg:flex-row"
+          className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 lg:flex-row"
         >
           <div className="flex flex-col justify-center gap-2">
-            <p className="text-center font-mono text-xs uppercase text-shadow-steel-dark lg:text-left">
+            <p className="text-center font-mono text-xs uppercase text-muted-foreground lg:text-left">
               © {new Date().getFullYear()} North GTA Steel Building Inc. All
               rights reserved.
             </p>
-            <p className="font-mono text-xs uppercase text-shadow-steel-dark">
+            <p className="font-mono text-xs uppercase text-muted-foreground">
               Built with Canadian Steel
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/privacy-policy"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
+              className="font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
             >
               Privacy Policy
             </Link>
 
-            <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
+            <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
               —
             </span>
 
@@ -192,16 +192,16 @@ export default function Footer() {
               href={VENDOR_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
+              className="font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
             >
               Website by {VENDOR_NAME}
             </Link>
-            <span className="hidden font-mono text-xs text-shadow-steel-dark sm:inline">
+            <span className="hidden font-mono text-xs text-muted-foreground sm:inline">
               —
             </span>
             <Link
               href="/sitemap.xml"
-              className="font-mono text-xs uppercase tracking-wider text-shadow-steel-dark transition-colors hover:text-primary"
+              className="font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-primary"
             >
               Sitemap
             </Link>

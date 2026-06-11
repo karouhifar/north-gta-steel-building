@@ -34,7 +34,7 @@ export default function RawSteelSection() {
         }}
         className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-steel-offwhite dark:text-steel-gray/30"
         style={{
-          fontSize: "20vw",
+          fontSize: "clamp(64px, 20vw, 360px)",
         }}
       >
         Raw Steel
@@ -57,7 +57,7 @@ export default function RawSteelSection() {
               {/* Red border accent */}
               <div className="absolute -bottom-3 -right-3 h-full w-full border-2 border-steel-red" />
 
-              <Card className="relative overflow-hidden rounded-none border border-steel-mid bg-steel-dark p-0 shadow-2xl">
+              <Card className="relative overflow-hidden rounded-none border border-border bg-card p-0 shadow-2xl">
                 <CardContent className="group relative aspect-[3/4] overflow-hidden p-0">
                   <Image
                     src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=900&h=1200&fit=crop&q=80"
@@ -96,7 +96,7 @@ export default function RawSteelSection() {
             <h2 className="mb-8 font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-6xl xl:text-7xl">
               No ornament.
               <br />
-              <span className="text-steel-light">No pretense.</span>
+              <span className="text-muted-foreground">No pretense.</span>
               <br />
               Just structure.
             </h2>
@@ -113,7 +113,7 @@ export default function RawSteelSection() {
               className="mb-8 h-0.5 bg-steel-red"
             />
 
-            <p className="mb-8 max-w-lg font-general text-base leading-relaxed text-shadow-steel-dark">
+            <p className="mb-8 max-w-lg font-general text-base leading-relaxed text-muted-foreground">
               Steel doesn&apos;t apologize. It doesn&apos;t follow trends. It
               carries loads measured in tons across spans measured in hundreds
               of feet. When you strip away the decoration, what remains is truth
@@ -133,13 +133,13 @@ export default function RawSteelSection() {
                     delay: 0.25 + index * 0.12,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="border-t border-steel-mid pt-4"
+                  className="border-t border-border pt-4"
                 >
                   <p className="font-clash text-3xl font-bold tracking-tight text-foreground">
                     {item.title}
                   </p>
 
-                  <p className="mt-1 font-mono text-xs text-shadow-steel-dark">
+                  <p className="mt-1 font-mono text-xs text-muted-foreground">
                     {item.description}
                   </p>
                 </motion.div>
