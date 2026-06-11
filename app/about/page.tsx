@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   ClipboardCheck,
   Compass,
-  Hammer,
   MapPin,
   ShieldCheck,
   Snowflake,
@@ -111,9 +110,9 @@ const serviceHighlights = [
 
 export default function About() {
   return (
-    <main className="bg-background text-foreground">
+    <main className="min-w-0 overflow-x-hidden bg-background text-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-20 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.08]" />
 
         <motion.div
@@ -126,14 +125,14 @@ export default function About() {
           Ontario Steel
         </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 items-start gap-10">
-            <div className="col-span-12 lg:col-span-7">
+        <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-7">
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-5 font-mono text-xs uppercase tracking-[0.35em] text-steel-red"
+                className="mb-4 max-w-full font-mono text-[10px] uppercase tracking-[0.22em] text-steel-red sm:mb-5 sm:text-xs sm:tracking-[0.35em]"
               >
                 About North GTA Steel Buildings
               </motion.p>
@@ -147,7 +146,7 @@ export default function About() {
                     delay: 0.1,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="font-clash text-[clamp(52px,8vw,132px)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-foreground"
+                  className="max-w-full break-words font-clash text-[clamp(2.75rem,12vw,8.25rem)] font-black uppercase leading-[0.92] tracking-[-0.04em] text-foreground"
                 >
                   Steel Buildings
                   <br />
@@ -165,7 +164,7 @@ export default function About() {
                   delay: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="my-8 h-1 bg-steel-red"
+                className="my-6 h-1 max-w-[8rem] bg-steel-red sm:my-8"
               />
 
               <motion.p
@@ -176,7 +175,7 @@ export default function About() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="max-w-2xl font-general text-base leading-relaxed text-muted-foreground lg:text-lg"
+                className="max-w-2xl font-general text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg"
               >
                 North GTA Steel Buildings helps Ontario property owners,
                 farmers, contractors, and businesses plan, supply, and build
@@ -194,22 +193,22 @@ export default function About() {
                   delay: 0.85,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-8 flex flex-col gap-4 sm:flex-row"
+                className="mt-8 flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap"
               >
                 <Button
                   asChild
-                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
+                  className="h-auto w-full justify-center whitespace-normal rounded-none bg-steel-red px-6 py-4 text-center font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background sm:w-auto sm:px-8"
                 >
                   <Link href="/#quote">
                     Get A Free Building Quote
-                    <ArrowRight className="ml-3 size-4" />
+                    <ArrowRight className="ml-3 size-4 shrink-0" />
                   </Link>
                 </Button>
 
                 <Button
                   asChild
                   variant="outline"
-                  className="h-auto rounded-none border-border bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
+                  className="h-auto w-full justify-center whitespace-normal rounded-none border-border bg-transparent px-6 py-4 text-center font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red sm:w-auto sm:px-8"
                 >
                   <Link href="/#services">Explore Building Types</Link>
                 </Button>
@@ -224,13 +223,13 @@ export default function About() {
                 delay: 0.35,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="col-span-12 lg:col-span-5"
+              className="lg:col-span-5"
             >
               <div className="relative">
-                <div className="absolute -bottom-4 -right-4 h-full w-full rounded-[2rem] border-2 border-steel-red" />
+                <div className="absolute -bottom-3 -right-3 h-full w-full rounded-[1.5rem] border-2 border-steel-red sm:-bottom-4 sm:-right-4 sm:rounded-[2rem]" />
 
-                <Card className="relative overflow-hidden rounded-[2rem] border border-border bg-muted p-2 shadow-2xl">
-                  <CardContent className="group relative aspect-[4/5] overflow-hidden rounded-[1.5rem] p-0 sm:aspect-[16/11] lg:aspect-[4/5]">
+                <Card className="relative overflow-hidden rounded-[1.5rem] border border-border bg-muted p-2 shadow-2xl sm:rounded-[2rem]">
+                  <CardContent className="group relative aspect-[4/3] overflow-hidden rounded-[1.25rem] p-0 sm:aspect-[16/11] sm:rounded-[1.5rem] lg:aspect-[4/5]">
                     <Image
                       src={HandymanImg}
                       alt="North GTA steel building project"
@@ -242,16 +241,16 @@ export default function About() {
 
                     <div className="absolute inset-0 bg-gradient-to-t from-steel-black/90 via-steel-black/20 to-transparent" />
 
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                      <p className="mb-2 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                         Ontario-Ready Structures
                       </p>
 
-                      <h2 className="font-clash text-2xl font-bold uppercase tracking-tight text-primary-foreground">
+                      <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-primary-foreground sm:text-2xl">
                         Planning. Supply. Permit-Aware Support.
                       </h2>
 
-                      <p className="mt-3 max-w-sm font-general text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-3 max-w-sm font-general text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         A clearer path for steel garages, warehouses,
                         agricultural buildings, workshops, and commercial steel
                         structures.
@@ -266,20 +265,20 @@ export default function About() {
       </section>
 
       {/* Main statement */}
-      <section className="border-b border-border bg-background py-24 lg:py-32">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 gap-8">
+      <section className="border-b border-border bg-background py-16 sm:py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
             <motion.div
               initial={{ opacity: 0, y: 36 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-              className="col-span-12 lg:col-span-2"
+              className="lg:col-span-2"
             >
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="font-mono text-[10px] uppercase tracking-widest sm:text-xs text-muted-foreground">
                 [001]
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-muted-foreground">
                 Who We Are
               </p>
             </motion.div>
@@ -293,12 +292,14 @@ export default function About() {
                 delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="col-span-12 lg:col-span-7"
+              className="lg:col-span-7"
             >
-              <h2 className="font-clash text-4xl font-semibold uppercase leading-tight tracking-tight text-foreground lg:text-6xl xl:text-7xl">
+              <h2 className="font-clash text-3xl font-semibold uppercase leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
                 We do more than
                 <br />
-                <span className="text-muted-foreground">sell steel packages.</span>
+                <span className="text-muted-foreground">
+                  sell steel packages.
+                </span>
                 <br />
                 We help you build
                 <br />
@@ -315,7 +316,7 @@ export default function About() {
                 delay: 0.2,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="col-span-12 flex flex-col justify-end lg:col-span-3"
+              className="flex flex-col justify-end lg:col-span-3"
             >
               <div className="border-t border-border pt-6">
                 <p className="font-general text-sm leading-relaxed text-muted-foreground">
@@ -331,9 +332,9 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="border-b border-border bg-muted py-12">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <section className="border-b border-border bg-muted py-10 sm:py-12">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -347,11 +348,11 @@ export default function About() {
                 }}
                 className="border-t border-border pt-5"
               >
-                <p className="font-clash text-4xl font-bold uppercase tracking-tight text-foreground lg:text-5xl">
+                <p className="font-clash text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl lg:text-5xl">
                   {stat.value}
                 </p>
 
-                <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-muted-foreground">
                   {stat.label}
                 </p>
               </motion.div>
@@ -361,22 +362,22 @@ export default function About() {
       </section>
 
       {/* Why choose us */}
-      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-20 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.05]" />
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="mb-16 grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-2">
-              <p className="font-mono text-xs uppercase tracking-widest text-steel-red">
+        <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="mb-10 grid grid-cols-1 gap-8 sm:mb-16 lg:grid-cols-12">
+            <div className="lg:col-span-2">
+              <p className="font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                 [002]
               </p>
-              <p className="mt-1 font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="mt-1 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-muted-foreground">
                 Why Choose Us
               </p>
             </div>
 
-            <div className="col-span-12 lg:col-span-10">
-              <h2 className="font-clash text-5xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-7xl">
+            <div className="lg:col-span-10">
+              <h2 className="font-clash text-4xl font-bold uppercase leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-7xl">
                 Simplifying
                 <br />
                 Steel Building_
@@ -384,7 +385,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
             {values.map((value, index) => {
               const Icon = value.icon;
 
@@ -401,7 +402,7 @@ export default function About() {
                   }}
                 >
                   <Card className="group h-full rounded-none border border-border bg-transparent shadow-none transition-colors hover:border-steel-red">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6 sm:p-8">
                       <div className="mb-8 flex items-center justify-between">
                         <span className="font-mono text-xs text-muted-foreground">
                           0{index + 1}
@@ -410,7 +411,7 @@ export default function About() {
                         <Icon className="size-6 text-muted-foreground transition-colors group-hover:text-steel-red" />
                       </div>
 
-                      <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
+                      <h3 className="mb-3 font-clash text-lg font-semibold uppercase tracking-tight text-foreground sm:text-xl">
                         {value.title}
                       </h3>
 
@@ -427,28 +428,28 @@ export default function About() {
       </section>
 
       {/* Mission */}
-      <section className="border-b border-border bg-muted py-24 lg:py-32">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-4">
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
+      <section className="border-b border-border bg-muted py-16 sm:py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                 [003] Our Mission
               </p>
 
-              <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-6xl">
+              <h2 className="font-clash text-3xl font-bold uppercase leading-[0.98] tracking-tight text-foreground sm:text-4xl lg:text-6xl">
                 Clear Planning.
                 <br />
                 Durable Steel.
               </h2>
             </div>
 
-            <div className="col-span-12 lg:col-span-8">
-              <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="lg:col-span-8">
+              <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
                 <Card className="rounded-none border border-border bg-background shadow-none">
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 sm:p-8">
                     <CheckCircle2 className="mb-8 size-7 text-steel-red" />
 
-                    <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
+                    <h3 className="mb-3 font-clash text-lg font-semibold uppercase tracking-tight text-foreground sm:text-xl">
                       Our Mission
                     </h3>
 
@@ -461,10 +462,10 @@ export default function About() {
                 </Card>
 
                 <Card className="rounded-none border border-border bg-background shadow-none">
-                  <CardContent className="p-8">
+                  <CardContent className="p-6 sm:p-8">
                     <Building2 className="mb-8 size-7 text-steel-red" />
 
-                    <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
+                    <h3 className="mb-3 font-clash text-lg font-semibold uppercase tracking-tight text-foreground sm:text-xl">
                       Our Promise
                     </h3>
 
@@ -482,21 +483,21 @@ export default function About() {
       </section>
 
       {/* Process */}
-      <section className="bg-background py-24 lg:py-32">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="mb-16">
-            <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
+      <section className="bg-background py-16 sm:py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="mb-10 sm:mb-16">
+            <p className="mb-4 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
               [004] How We Help
             </p>
 
-            <h2 className="font-clash text-5xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-7xl">
+            <h2 className="font-clash text-4xl font-bold uppercase leading-[0.95] tracking-tight text-foreground sm:text-5xl lg:text-7xl">
               A Better Way
               <br />
               To Start_
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 lg:gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
             {process.map((item, index) => (
               <motion.div
                 key={item.title}
@@ -510,12 +511,12 @@ export default function About() {
                 }}
               >
                 <Card className="h-full rounded-none border border-border bg-muted shadow-none">
-                  <CardContent className="p-8">
-                    <p className="mb-8 font-mono text-xs uppercase tracking-widest text-steel-red">
+                  <CardContent className="p-6 sm:p-8">
+                    <p className="mb-8 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                       {item.number}
                     </p>
 
-                    <h3 className="mb-3 font-clash text-xl font-semibold uppercase tracking-tight text-foreground">
+                    <h3 className="mb-3 font-clash text-lg font-semibold uppercase tracking-tight text-foreground sm:text-xl">
                       {item.title}
                     </h3>
 
@@ -531,15 +532,15 @@ export default function About() {
       </section>
 
       {/* Services and building types */}
-      <section className="border-y border-border bg-muted py-20">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 gap-10">
-            <div className="col-span-12 lg:col-span-5">
-              <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
+      <section className="border-y border-border bg-muted py-16 sm:py-20">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                 [005] What We Support
               </p>
 
-              <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-6xl">
+              <h2 className="font-clash text-3xl font-bold uppercase leading-[0.98] tracking-tight text-foreground sm:text-4xl lg:text-6xl">
                 From Concept
                 <br />
                 To Build_
@@ -552,12 +553,12 @@ export default function About() {
               </p>
             </div>
 
-            <div className="col-span-12 lg:col-span-7">
-              <div className="mb-8 flex flex-wrap gap-3">
+            <div className="lg:col-span-7">
+              <div className="mb-8 flex flex-wrap gap-2 sm:gap-3">
                 {serviceHighlights.map((service) => (
                   <span
                     key={service}
-                    className="border border-border px-4 py-2 font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red"
+                    className="max-w-full break-words border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red sm:px-4 sm:text-xs"
                   >
                     {service}
                   </span>
@@ -565,15 +566,15 @@ export default function About() {
               </div>
 
               <div className="border-t border-border pt-8">
-                <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
+                <p className="mb-4 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                   Building Types
                 </p>
 
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {buildingTypes.map((type) => (
                     <span
                       key={type}
-                      className="border border-border bg-background px-4 py-2 font-mono text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red"
+                      className="max-w-full break-words border border-border bg-background px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground transition-colors hover:border-steel-red hover:text-steel-red sm:px-4 sm:text-xs"
                     >
                       {type}
                     </span>
@@ -586,20 +587,20 @@ export default function About() {
       </section>
 
       {/* Service area */}
-      <section className="border-b border-border bg-background py-16">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 items-center gap-8">
-            <div className="col-span-12 lg:col-span-3">
-              <p className="font-mono text-xs uppercase tracking-widest text-steel-red">
+      <section className="border-b border-border bg-background py-14 sm:py-16">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+            <div className="lg:col-span-3">
+              <p className="font-mono text-[10px] uppercase tracking-widest sm:text-xs text-steel-red">
                 [006] Service Area
               </p>
             </div>
 
-            <div className="col-span-12 lg:col-span-9">
-              <div className="flex items-start gap-4">
+            <div className="lg:col-span-9">
+              <div className="flex items-start gap-3 sm:gap-4">
                 <MapPin className="mt-1 size-5 shrink-0 text-steel-red" />
 
-                <p className="max-w-3xl font-general text-base leading-relaxed text-muted-foreground">
+                <p className="max-w-3xl font-general text-sm leading-relaxed text-muted-foreground sm:text-base">
                   We serve property owners, farmers, contractors, and businesses
                   across Ontario, with a strong focus on the Greater Toronto
                   Area, North GTA communities, rural Ontario properties, and
@@ -613,7 +614,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-steel-red py-20">
+      <section className="relative overflow-hidden bg-steel-red py-16 sm:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-10"
           style={{
@@ -622,13 +623,13 @@ export default function About() {
           }}
         />
 
-        <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-6 lg:flex-row lg:items-center lg:px-12">
+        <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-12">
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary-foreground/70">
+            <p className="mb-3 font-mono text-[10px] uppercase tracking-widest sm:text-xs text-primary-foreground/70">
               Start Your Build
             </p>
 
-            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-6xl">
+            <h2 className="font-clash text-3xl font-bold uppercase leading-[0.98] tracking-tight text-primary-foreground sm:text-4xl lg:text-6xl">
               Start With A Plan
               <br />
               Before You Order Steel.
@@ -643,11 +644,11 @@ export default function About() {
 
           <Button
             asChild
-            className="h-auto rounded-none bg-primary-foreground px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-primary-foreground"
+            className="h-auto w-full justify-center whitespace-normal rounded-none bg-primary-foreground px-6 py-4 text-center font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-primary-foreground sm:w-auto sm:px-8"
           >
             <Link href="/#quote">
               Start A Free Steel Building Consultation
-              <ArrowRight className="ml-3 size-4" />
+              <ArrowRight className="ml-3 size-4 shrink-0" />
             </Link>
           </Button>
         </div>

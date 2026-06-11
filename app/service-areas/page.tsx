@@ -275,9 +275,9 @@ export default function ServiceAreas() {
   const [openCity, setOpenCity] = useState<string>("toronto");
 
   return (
-    <main className="bg-background text-foreground">
+    <main className="overflow-x-hidden bg-background text-foreground">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-20 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.08]" />
 
         <motion.div
@@ -285,19 +285,19 @@ export default function ServiceAreas() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 select-none whitespace-nowrap font-clash font-bold uppercase leading-none text-foreground/5 lg:block"
-          style={{ fontSize: "clamp(80px, 16vw, 300px)" }}
+          style={{ fontSize: "clamp(96px, 16vw, 300px)" }}
         >
           Ontario
         </motion.div>
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="grid grid-cols-12 items-end gap-10">
-            <div className="col-span-12 lg:col-span-7">
+        <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="grid grid-cols-12 items-start gap-8 lg:items-end lg:gap-10">
+            <div className="col-span-12 min-w-0 lg:col-span-7">
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-                className="mb-5 font-mono text-xs uppercase tracking-[0.35em] text-steel-red"
+                className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] text-steel-red sm:mb-5 sm:text-xs sm:tracking-[0.35em]"
               >
                 North GTA Steel Buildings
               </motion.p>
@@ -310,7 +310,7 @@ export default function ServiceAreas() {
                   delay: 0.1,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="font-clash text-[clamp(50px,8vw,126px)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-foreground"
+                className="font-clash text-[clamp(44px,14vw,126px)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-foreground sm:text-[clamp(56px,9vw,126px)]"
               >
                 Service Areas
                 <br />
@@ -327,7 +327,7 @@ export default function ServiceAreas() {
                   delay: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="my-8 h-1 bg-steel-red"
+                className="my-6 h-1 bg-steel-red sm:my-8"
               />
 
               <motion.p
@@ -338,7 +338,7 @@ export default function ServiceAreas() {
                   delay: 0.7,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="max-w-2xl font-general text-base leading-relaxed text-muted-foreground lg:text-lg"
+                className="max-w-2xl font-general text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg"
               >
                 We serve property owners, contractors, farmers, and businesses
                 across Ontario, with a strong focus on the Greater Toronto Area.
@@ -353,11 +353,11 @@ export default function ServiceAreas() {
                   delay: 0.85,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-8 flex flex-col gap-4 sm:flex-row"
+                className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4"
               >
                 <Button
                   asChild
-                  className="h-auto rounded-none bg-steel-red px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
+                  className="h-auto w-full justify-center rounded-none bg-steel-red px-5 py-4 text-center font-general text-xs font-semibold uppercase tracking-[0.16em] text-primary-foreground hover:bg-foreground hover:text-background sm:w-auto sm:px-8 sm:tracking-widest"
                 >
                   <Link href="/#quote">
                     Get A Free Quote
@@ -368,7 +368,7 @@ export default function ServiceAreas() {
                 <Button
                   asChild
                   variant="outline"
-                  className="h-auto rounded-none border-border bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red"
+                  className="h-auto w-full justify-center rounded-none border-border bg-transparent px-5 py-4 text-center font-general text-xs font-medium uppercase tracking-[0.16em] text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red sm:w-auto sm:px-8 sm:tracking-widest"
                 >
                   <Link href="/#services">Explore Services</Link>
                 </Button>
@@ -383,16 +383,16 @@ export default function ServiceAreas() {
                 delay: 0.3,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="col-span-12 lg:col-span-5"
+              className="col-span-12 min-w-0 lg:col-span-5"
             >
-              <Card className="rounded-[1.75rem] border border-border bg-muted shadow-2xl">
-                <CardContent className="p-6 sm:p-8">
-                  <div className="mb-6 flex items-start justify-between gap-4 border-b border-border pb-6">
+              <Card className="rounded-[1.25rem] border border-border bg-muted shadow-2xl sm:rounded-[1.75rem]">
+                <CardContent className="p-5 sm:p-8">
+                  <div className="mb-6 flex flex-col items-start justify-between gap-4 border-b border-border pb-6 sm:flex-row">
                     <div>
                       <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
                         Service Coverage
                       </p>
-                      <h2 className="font-clash text-2xl font-bold uppercase tracking-tight text-foreground">
+                      <h2 className="font-clash text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
                         Ontario-Focused
                       </h2>
                     </div>
@@ -437,10 +437,10 @@ export default function ServiceAreas() {
       </section>
 
       {/* Map + active city */}
-      <section className="border-b border-border bg-muted py-24 lg:py-32">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="mb-12 grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-2">
+      <section className="border-b border-border bg-muted py-16 sm:py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="mb-10 grid grid-cols-12 gap-6 sm:mb-12 lg:gap-8">
+            <div className="col-span-12 min-w-0 lg:col-span-2">
               <p className="font-mono text-xs uppercase tracking-widest text-steel-red">
                 [001]
               </p>
@@ -449,8 +449,8 @@ export default function ServiceAreas() {
               </p>
             </div>
 
-            <div className="col-span-12 lg:col-span-10">
-              <h2 className="font-clash text-5xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-7xl">
+            <div className="col-span-12 min-w-0 lg:col-span-10">
+              <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground sm:text-5xl lg:text-7xl">
                 Ontario Service
                 <br />
                 Coverage_
@@ -464,7 +464,7 @@ export default function ServiceAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="col-span-12 lg:col-span-8"
+              className="col-span-12 min-w-0 overflow-hidden rounded-[1.25rem] lg:col-span-8 lg:rounded-[1.5rem]"
             >
               <OntarioMap />
             </motion.div>
@@ -478,15 +478,15 @@ export default function ServiceAreas() {
                 delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="col-span-12 lg:col-span-4"
+              className="col-span-12 min-w-0 lg:col-span-4"
             >
-              <Card className="h-full rounded-[1.5rem] border border-border bg-background shadow-none">
-                <CardContent className="p-6 sm:p-8">
+              <Card className="h-full rounded-[1.25rem] border border-border bg-background shadow-none sm:rounded-[1.5rem]">
+                <CardContent className="p-5 sm:p-8">
                   <p className="mb-2 font-mono text-xs uppercase tracking-widest text-steel-red">
                     Service Areas
                   </p>
 
-                  <h3 className="font-clash text-3xl font-bold uppercase tracking-tight text-foreground">
+                  <h3 className="font-clash text-2xl font-bold uppercase tracking-tight text-foreground sm:text-3xl">
                     Ontario Coverage
                   </h3>
 
@@ -497,7 +497,7 @@ export default function ServiceAreas() {
 
                   <div className="my-6 h-px bg-border" />
 
-                  <div className="max-h-96 space-y-3 overflow-y-auto pr-2 lg:max-h-175">
+                  <div className="max-h-[32rem] space-y-3 overflow-y-auto pr-1 sm:pr-2 lg:max-h-[44rem]">
                     {serviceCities.map((city) => {
                       const isOpen = openCity === city.slug;
 
@@ -510,14 +510,14 @@ export default function ServiceAreas() {
                           }
                           className="rounded-xl border border-border bg-muted/60 transition-colors hover:border-steel-red/60"
                         >
-                          <CollapsibleTrigger className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
+                          <CollapsibleTrigger className="flex w-full items-center justify-between gap-3 px-3 py-4 text-left sm:gap-4 sm:px-4">
                             <div className="flex items-start gap-3">
                               <div className="mt-1 flex size-8 shrink-0 items-center justify-center rounded-full bg-steel-red/15 text-steel-red">
                                 <MapPin className="size-4" />
                               </div>
 
                               <div>
-                                <h4 className="font-clash text-lg font-bold uppercase tracking-tight text-foreground">
+                                <h4 className="font-clash text-base font-bold uppercase tracking-tight text-foreground sm:text-lg">
                                   {city.name}
                                 </h4>
 
@@ -555,7 +555,7 @@ export default function ServiceAreas() {
 
                               <Button
                                 asChild
-                                className="mt-5 h-auto w-full rounded-xl bg-steel-red px-6 py-4 font-general text-xs font-semibold uppercase tracking-widest text-primary-foreground hover:bg-foreground hover:text-background"
+                                className="mt-5 h-auto w-full justify-center rounded-xl bg-steel-red px-4 py-4 text-center font-general text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground hover:bg-foreground hover:text-background sm:px-6 sm:tracking-widest"
                               >
                                 <Link href="/#quote">
                                   Request Service In {city.name}
@@ -576,23 +576,23 @@ export default function ServiceAreas() {
       </section>
 
       {/* City groups */}
-      <section className="relative overflow-hidden border-b border-border bg-background py-24 lg:py-32">
+      <section className="relative overflow-hidden border-b border-border bg-background py-16 sm:py-20 lg:py-32">
         <div className="steel-grid-bg pointer-events-none absolute inset-0 opacity-[0.05]" />
 
-        <div className="relative z-10 mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="mb-16">
+        <div className="relative z-10 mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="mb-10 sm:mb-16">
             <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
               [002] Cities & Regions
             </p>
 
-            <h2 className="font-clash text-5xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-7xl">
+            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground sm:text-5xl lg:text-7xl">
               Service Areas
               <br />
               By Region_
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {cityGroups.map((group, index) => (
               <motion.div
                 key={group.title}
@@ -606,7 +606,7 @@ export default function ServiceAreas() {
                 }}
               >
                 <Card className="h-full rounded-none border border-border bg-transparent shadow-none">
-                  <CardContent className="p-8">
+                  <CardContent className="p-5 sm:p-8">
                     <p className="mb-6 font-mono text-xs uppercase tracking-widest text-steel-red">
                       0{index + 1}
                     </p>
@@ -628,7 +628,7 @@ export default function ServiceAreas() {
                             onClick={() =>
                               cityMatch && setOpenCity(cityMatch.slug)
                             }
-                            className="border border-border px-3 py-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground transition-all duration-300 hover:border-steel-red hover:text-steel-red"
+                            className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground transition-all duration-300 hover:border-steel-red hover:text-steel-red sm:text-[11px]"
                           >
                             {city}
                           </button>
@@ -644,23 +644,23 @@ export default function ServiceAreas() {
       </section>
 
       {/* Services in these areas */}
-      <section className="border-b border-border bg-muted py-24 lg:py-32">
-        <div className="mx-auto max-w-screen-2xl px-6 lg:px-12">
-          <div className="mb-16 grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-3">
+      <section className="border-b border-border bg-muted py-16 sm:py-20 lg:py-32">
+        <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-12">
+          <div className="mb-10 grid grid-cols-12 gap-6 sm:mb-16 lg:gap-8">
+            <div className="col-span-12 min-w-0 lg:col-span-3">
               <p className="mb-4 font-mono text-xs uppercase tracking-widest text-steel-red">
                 [003] Services We Support
               </p>
 
-              <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-foreground lg:text-6xl">
+              <h2 className="font-clash text-3xl font-bold uppercase leading-none tracking-tight text-foreground sm:text-4xl lg:text-6xl">
                 Across These
                 <br />
                 Areas_
               </h2>
             </div>
 
-            <div className="col-span-12 lg:col-span-9">
-              <p className="max-w-3xl font-general text-base leading-relaxed text-muted-foreground">
+            <div className="col-span-12 min-w-0 lg:col-span-9">
+              <p className="max-w-3xl font-general text-sm leading-relaxed text-muted-foreground sm:text-base">
                 Our Ontario coverage supports planning, steel building supply,
                 permit-aware preparation, and construction-related services
                 designed for commercial, industrial, agricultural, and custom
@@ -669,7 +669,7 @@ export default function ServiceAreas() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:gap-6">
             {serviceHighlights.map((service, index) => {
               const icons = [Compass, ShieldCheck, Hammer, Building2];
               const Icon = icons[index % icons.length];
@@ -687,7 +687,7 @@ export default function ServiceAreas() {
                   }}
                 >
                   <Card className="group h-full rounded-none border border-border bg-background shadow-none transition-colors hover:border-steel-red">
-                    <CardContent className="p-8">
+                    <CardContent className="p-5 sm:p-8">
                       <div className="mb-8 flex items-center justify-between">
                         <span className="font-mono text-xs text-muted-foreground">
                           0{index + 1}
@@ -708,7 +708,7 @@ export default function ServiceAreas() {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden bg-steel-red py-20">
+      <section className="relative overflow-hidden bg-steel-red py-16 sm:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-10"
           style={{
@@ -717,19 +717,19 @@ export default function ServiceAreas() {
           }}
         />
 
-        <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-6 lg:flex-row lg:items-center lg:px-12">
+        <div className="relative z-10 mx-auto flex max-w-screen-2xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-12">
           <div>
             <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary-foreground/70">
               Start Your Build
             </p>
 
-            <h2 className="font-clash text-4xl font-bold uppercase leading-none tracking-tight text-primary-foreground lg:text-6xl">
+            <h2 className="font-clash text-3xl font-bold uppercase leading-none tracking-tight text-primary-foreground sm:text-4xl lg:text-6xl">
               Need Steel Building
               <br />
               Service In Ontario?
             </h2>
 
-            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-primary-foreground/80">
+            <p className="mt-5 max-w-xl font-general text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
               Tell us what you want to build and where the project is located.
               We’ll help you understand the right next step for your service
               area and building type.
@@ -738,7 +738,7 @@ export default function ServiceAreas() {
 
           <Button
             asChild
-            className="h-auto rounded-none bg-primary-foreground px-8 py-4 font-general text-xs font-semibold uppercase tracking-widest text-steel-black hover:bg-steel-black hover:text-primary-foreground"
+            className="h-auto w-full justify-center rounded-none bg-primary-foreground px-5 py-4 text-center font-general text-xs font-semibold uppercase tracking-[0.16em] text-steel-black hover:bg-steel-black hover:text-primary-foreground sm:w-auto sm:px-8 sm:tracking-widest"
           >
             <Link href="/#quote">
               Get A Free Estimate

@@ -7,6 +7,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 import { cities } from "@/data/cities";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const marker: Record<string, [number, number] | number>[] = [
   { Toronto: [43.75, -79.42], kpl: 1.7 }, // Toronto
@@ -47,6 +48,7 @@ function FitToMap({ shape }: { shape: GeoJSON.Feature }) {
 
 function AnimatedCities() {
   const map = useMap();
+  const isMobile = useIsMobile();
   // force re-render on pan/zoom/resize so the dots stay glued to coords
   const [, setTick] = useState(0);
   useEffect(() => {
@@ -66,87 +68,89 @@ function AnimatedCities() {
         zIndex: 500,
       }}
     >
-      {cities.map((city, i) => {
-        const point = map.latLngToContainerPoint(city.coords);
-        const highlighted = city.name === "Toronto (GTA)";
-        const dot = highlighted ? 12 : 8;
-        const baseDelay = 0.4 + i * 0.08;
+      {cities
+        .filter((city) => (isMobile ? city === cities[0] : true))
+        .map((city, i) => {
+          const point = map.latLngToContainerPoint(city.coords);
+          const highlighted = city.name === "Toronto (GTA)";
+          const dot = highlighted ? 12 : 8;
+          const baseDelay = 0.4 + i * 0.08;
 
-        return (
-          <div
-            key={city.name}
-            style={{
-              position: "absolute",
-              left: point.x - dot / 2,
-              top: point.y - dot / 2,
-            }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                delay: baseDelay,
-                type: "spring",
-                stiffness: 260,
-                damping: 18,
-              }}
+          return (
+            <div
+              key={city.name}
               style={{
-                display: "flex",
-                alignItems: "center",
-                transformOrigin: `${dot / 2}px center`,
+                position: "absolute",
+                left: point.x - dot / 2,
+                top: point.y - dot / 2,
               }}
             >
-              {highlighted && (
-                <motion.div
-                  animate={{ scale: [1, 1.35, 1], opacity: [0.9, 0.3, 0.9] }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: baseDelay + 0.4,
-                  }}
-                  style={{
-                    position: "absolute",
-                    width: 30,
-                    height: 30,
-                    border: "2px solid var(--foreground)",
-                    borderRadius: "50%",
-                    left: -15 + dot / 2,
-                    top: -15 + dot / 2,
-                    boxShadow:
-                      "0 0 0 1px color-mix(in srgb, var(--foreground) 35%, transparent)",
-                  }}
-                />
-              )}
-              <div
-                style={{
-                  width: dot,
-                  height: dot,
-                  background: "var(--foreground)",
-                  borderRadius: "50%",
-                  boxShadow:
-                    "0 1px 4px color-mix(in srgb, var(--background) 65%, transparent)",
-                  flexShrink: 0,
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  delay: baseDelay,
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 18,
                 }}
-              />
-              <span
                 style={{
-                  marginLeft: 10,
-                  color: "var(--foreground)",
-                  font: `${highlighted ? 700 : 600} ${
-                    highlighted ? 16 : 14
-                  }px/1 -apple-system, system-ui, 'Segoe UI', sans-serif`,
-                  whiteSpace: "nowrap",
-                  textShadow:
-                    "0 1px 3px var(--background), 0 0 8px var(--background)",
+                  display: "flex",
+                  alignItems: "center",
+                  transformOrigin: `${dot / 2}px center`,
                 }}
               >
-                {city.name}
-              </span>
-            </motion.div>
-          </div>
-        );
-      })}
+                {highlighted && (
+                  <motion.div
+                    animate={{ scale: [1, 1.35, 1], opacity: [0.9, 0.3, 0.9] }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: baseDelay + 0.4,
+                    }}
+                    style={{
+                      position: "absolute",
+                      width: 30,
+                      height: 30,
+                      border: "2px solid var(--foreground)",
+                      borderRadius: "50%",
+                      left: -15 + dot / 2,
+                      top: -15 + dot / 2,
+                      boxShadow:
+                        "0 0 0 1px color-mix(in srgb, var(--foreground) 35%, transparent)",
+                    }}
+                  />
+                )}
+                <div
+                  style={{
+                    width: dot,
+                    height: dot,
+                    background: "var(--foreground)",
+                    borderRadius: "50%",
+                    boxShadow:
+                      "0 1px 4px color-mix(in srgb, var(--background) 65%, transparent)",
+                    flexShrink: 0,
+                  }}
+                />
+                <span
+                  style={{
+                    marginLeft: 10,
+                    color: "var(--foreground)",
+                    font: `${highlighted ? 700 : 600} ${
+                      highlighted ? 16 : 14
+                    }px/1 -apple-system, system-ui, 'Segoe UI', sans-serif`,
+                    whiteSpace: "nowrap",
+                    textShadow:
+                      "0 1px 3px var(--background), 0 0 8px var(--background)",
+                  }}
+                >
+                  {city.name}
+                </span>
+              </motion.div>
+            </div>
+          );
+        })}
     </div>
   );
 }
@@ -219,23 +223,24 @@ export default function Map({
             lineJoin: "round",
           }}
         />
-        {marker.map((item, i) => {
-          const [name, position] = Object.entries(item)[0];
+        {!hasCity &&
+          marker.map((item, i) => {
+            const [name, position] = Object.entries(item)[0];
 
-          return (
-            <Marker
-              key={i}
-              position={
-                Array.isArray(position) ? position : [position, position]
-              }
-              icon={L.divIcon({
-                className: "toronto-watermark-icon",
-                html: `<span><b>${name}</b></span><br/><span>${item.kpl}</span>`,
-              })}
-              interactive={false}
-            />
-          );
-        })}
+            return (
+              <Marker
+                key={i}
+                position={
+                  Array.isArray(position) ? position : [position, position]
+                }
+                icon={L.divIcon({
+                  className: "toronto-watermark-icon",
+                  html: `<span><b>${name}</b></span><br/><span>${item.kpl}</span>`,
+                })}
+                interactive={false}
+              />
+            );
+          })}
 
         <FitToMap shape={shape} />
         {hasCity && <AnimatedCities />}
