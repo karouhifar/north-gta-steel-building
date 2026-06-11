@@ -7,8 +7,7 @@ import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import Grid from "@/public/images/grid.svg";
-import HeroIMG from "@/public/images/hero_img.png";
+import HeroIMG from "@/public/images/hero_img.webp";
 
 const titleLines = ["North GTA", "STEEL", "Buildings"];
 
@@ -16,16 +15,7 @@ export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] overflow-hidden bg-background pt-24 text-foreground sm:pt-28 lg:pt-16">
       {/* Background grid */}
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-100">
-        <Image
-          src={Grid}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-100"
-        />
-      </div>
+      <div className="steel-grid-bg pointer-events-none absolute inset-0 z-0 opacity-60" />
 
       {/* Left fade for legibility */}
       <div className="pointer-events-none absolute inset-0 z-[2] bg-linear-to-r from-background via-background/50 to-transparent sm:via-background/35" />

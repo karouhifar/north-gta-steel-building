@@ -9,8 +9,7 @@ export const SITE_NAME = "North GTA STEEL";
 export const LEGAL_NAME = "North GTA Steel Ltd.";
 export const FOUNDER = "Bob Rouhi";
 
-export const SITE_TITLE_DEFAULT =
-  "North GTA Steel Buildings | Steel Buildings in Ontario | Vaughan, Markham, Richmond Hill, Aurora, Newmarket | Greater Toronto Area";
+export const SITE_TITLE_DEFAULT = "Steel Buildings Ontario | North GTA Steel";
 
 export const SITE_DESCRIPTION =
   "Durable commercial, industrial, agricultural, and custom steel buildings across Vaughan, Markham, Richmond Hill, Aurora, Newmarket, and the Greater Toronto Area.";
@@ -27,6 +26,10 @@ export const COUNTRY = "CA";
 
 export const VENDOR_NAME = "Dreams Digital";
 export const VENDOR_URL = "https://www.dreamsdigital.ca/";
+
+/** Social / profile URLs for Organization `sameAs` (Google Business Profile,
+ * directories, socials). Populate as profiles are created. */
+export const SOCIAL_LINKS: string[] = [];
 
 export const LOGO_PATH = "favicon.ico";
 

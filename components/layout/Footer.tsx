@@ -6,6 +6,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { motion } from "motion/react";
 
 import { VENDOR_NAME, VENDOR_URL } from "@/lib/site";
+import { serviceCities } from "@/data/service-cities";
 import LogoImg from "@/public/images/logo/markLogo.png";
 
 const buildingLinks = [
@@ -16,12 +17,27 @@ const buildingLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contractors", href: "#contractors" },
-  { label: "Features", href: "#features" },
-  { label: "Contact", href: "#contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Services", href: "/#services" },
+  { label: "Service Areas", href: "/service-areas" },
+  { label: "Contact", href: "/contact" },
 ];
+
+const featuredAreaSlugs = [
+  "toronto",
+  "mississauga",
+  "brampton",
+  "vaughan",
+  "richmond-hill",
+  "oakville",
+  "whitby",
+  "caledon",
+];
+
+const areaLinks = serviceCities.filter((city) =>
+  featuredAreaSlugs.includes(city.slug),
+);
 
 const contactItems = [
   {
@@ -152,6 +168,32 @@ export default function Footer() {
                 );
               })}
             </div>
+          </div>
+        </motion.div>
+
+        {/* Areas we serve */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{
+            duration: 0.7,
+            delay: 0.1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="mb-12 border-t border-border pt-8"
+        >
+          <h4 className="mb-4 font-clash text-xs font-semibold uppercase tracking-widest text-foreground">
+            Areas We Serve
+          </h4>
+
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {areaLinks.map((city) => (
+              <FooterLink key={city.slug} href={`/steel-buildings/${city.slug}`}>
+                Steel Buildings {city.name}
+              </FooterLink>
+            ))}
+            <FooterLink href="/service-areas">All Service Areas</FooterLink>
           </div>
         </motion.div>
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Steel Building Blog | North GTA Steel",
+  title: "Steel Building Blog",
   description:
     "Helpful guides about steel buildings, pre-engineered metal buildings, commercial steel structures, and building costs in Ontario.",
   alternates: {

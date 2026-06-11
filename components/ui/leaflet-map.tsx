@@ -1,7 +1,7 @@
 "use client";
 
 import { MapContainer, GeoJSON, useMap, Marker } from "react-leaflet";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";

@@ -16,7 +16,7 @@ import { motion } from "motion/react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import HandymanImg from "@/public/images/handyman.png";
+import HandymanImg from "@/public/images/handyman.webp";
 const stats = [
   {
     value: "Ontario",

@@ -32,11 +32,11 @@ interface NavLink {
 const navLinks: NavLink[] = [
   {
     label: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     label: "Services",
-    href: "#services",
+    href: "/#services",
     children: [
       {
         label: "Commercial",
@@ -58,7 +58,7 @@ const navLinks: NavLink[] = [
   },
   {
     label: "Process",
-    href: "#process",
+    href: "/#quote",
   },
   {
     label: "Resources",

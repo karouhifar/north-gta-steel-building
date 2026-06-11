@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
 import { buildingCategories } from "@/data/categories";
+import { serviceCities } from "@/data/service-cities";
 import { getAllPosts } from "@/lib/mdx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -61,5 +62,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticRoutes, ...blogUrls, ...categoryRoutes];
+  const cityRoutes: MetadataRoute.Sitemap = serviceCities.map((city) => ({
+    url: `${SITE_URL}/steel-buildings/${city.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.85,
+  }));
+
+  return [...staticRoutes, ...blogUrls, ...categoryRoutes, ...cityRoutes];
 }

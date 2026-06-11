@@ -1,4 +1,8 @@
 import type { BuildingCategory } from "@/data/categories";
+import type {
+  FullServiceCity,
+  ServiceCityFaq,
+} from "@/data/service-city-content";
 import {
   AREA_SERVED,
   COUNTRY,
@@ -11,6 +15,7 @@ import {
   REGION,
   SITE_NAME,
   SITE_URL,
+  SOCIAL_LINKS,
   absoluteUrl,
 } from "@/lib/site";
 
@@ -41,6 +46,7 @@ export function organizationSchema() {
       addressCountry: COUNTRY,
     },
     areaServed: places(AREA_SERVED),
+    ...(SOCIAL_LINKS.length > 0 ? { sameAs: SOCIAL_LINKS } : {}),
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -99,6 +105,31 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       position: index + 1,
       name: item.name,
       item: absoluteUrl(item.path),
+    })),
+  };
+}
+
+export function cityServiceSchema(city: FullServiceCity) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: `Steel Buildings in ${city.name}`,
+    description: city.metaDescription,
+    serviceType: "Steel building design, supply, and construction",
+    url: absoluteUrl(`/steel-buildings/${city.slug}`),
+    provider: { "@id": ORG_ID },
+    areaServed: places([city.name, city.region, "Ontario"]),
+  };
+}
+
+export function faqPageSchema(faqs: ServiceCityFaq[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
     })),
   };
 }

@@ -9,7 +9,10 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   return (
-    <section className="relative overflow-hidden border-b bg-background py-16 text-foreground sm:py-20 lg:py-32">
+    <section
+      id="about"
+      className="relative overflow-hidden border-b bg-background py-16 text-foreground sm:py-20 lg:py-32"
+    >
       {/* Red brutalist accent */}
       <motion.div
         initial={{ height: 0 }}

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { clash, general, mono } from "./fonts";
 import { cn } from "@/lib/utils";
@@ -80,6 +81,13 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
   },
   category: "Construction",
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {
@@ -120,6 +128,9 @@ export default function RootLayout({
         <Header />
         <div className="pt-16">{children}</div>
         <Footer />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   );

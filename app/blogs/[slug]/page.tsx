@@ -26,14 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!post) {
     return {
-      title: "Blog Post Not Found | North GTA Steel",
+      title: "Blog Post Not Found",
+      robots: { index: false, follow: false },
     };
   }
 
   const url = `${siteUrl}/blogs/${post.meta.slug}`;
 
   return {
-    title: `${post.meta.title} | North GTA Steel`,
+    title: { absolute: `${post.meta.title} | North GTA Steel` },
     description: post.meta.description,
     alternates: {
       canonical: url,

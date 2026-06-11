@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import type { BuildingCategory } from "@/data/categories";
 import { Specs } from "../sections/multi-storey/Specs";
 import { Button } from "@/components/ui/button";
