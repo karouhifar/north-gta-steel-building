@@ -106,7 +106,7 @@ export default function Hero() {
                       delay: 0.2 + index * 0.15,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="font-clash font-bold uppercase leading-none tracking-tight text-foreground"
+                    className="font-clash font-bold uppercase leading-none tracking-wide text-foreground"
                     style={{
                       fontSize: "clamp(72px, 7vw, 150px)",
                     }}
