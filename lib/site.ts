@@ -1,6 +1,8 @@
 // Central SEO / site configuration — single source of truth for metadata,
 // sitemap, robots, structured data, and Open Graph images.
 
+import { MapPin } from "lucide-react";
+
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
   "https://www.northgtasteel.ca";
@@ -29,7 +31,13 @@ export const VENDOR_URL = "https://www.dreamsdigital.ca/";
 
 /** Social / profile URLs for Organization `sameAs` (Google Business Profile,
  * directories, socials). Populate as profiles are created. */
-export const SOCIAL_LINKS: string[] = [];
+export const SOCIAL_LINKS = [
+  {
+    name: "Google Maps",
+    href: "https://maps.app.goo.gl/kRoQ5YcgAyrLFRKF7",
+    icon: MapPin,
+  },
+];
 
 export const LOGO_PATH = "favicon.ico";
 

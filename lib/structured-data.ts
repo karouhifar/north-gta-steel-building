@@ -36,6 +36,7 @@ export function organizationSchema() {
     url: SITE_URL,
     logo: absoluteUrl(LOGO_PATH),
     image: absoluteUrl(LOGO_PATH),
+    hasMap: "https://maps.app.goo.gl/kRoQ5YcgAyrLFRKF7",
     email: EMAIL,
     telephone: PHONE,
     founder: { "@type": "Person", name: FOUNDER },
