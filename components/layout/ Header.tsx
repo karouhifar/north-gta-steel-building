@@ -137,6 +137,7 @@ function LogoSection() {
 
 export default function Header() {
   const [resourcesOpen, setResourcesOpen] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState<string | null>(null);
 
   return (
     <motion.header
@@ -172,7 +173,7 @@ export default function Header() {
                     type="button"
                     onClick={() =>
                       setResourcesOpen((current) =>
-                        current === link.label ? link.label : null,
+                        current === link.label ? null : link.label,
                       )
                     }
                     className="hover-line group relative inline-flex items-center gap-1 font-general text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground focus:outline-none"
@@ -322,7 +323,7 @@ export default function Header() {
               side="right"
               className="border-border bg-background text-foreground"
             >
-              <SheetHeader>
+              <SheetHeader className="px-5">
                 <SheetTitle className="text-left font-clash uppercase tracking-tight text-foreground">
                   North GTA Steel
                 </SheetTitle>
@@ -341,10 +342,11 @@ export default function Header() {
                     },
                   },
                 }}
-                className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto"
+                className="flex min-h-0 flex-1 flex-col overflow-y-auto px-5"
               >
                 {navLinks.map((link) => {
                   if (link.children) {
+                    const open = mobileOpen === link.label;
                     return (
                       <motion.div
                         key={link.label}
@@ -356,44 +358,67 @@ export default function Header() {
                           duration: 0.35,
                           ease: [0.16, 1, 0.3, 1],
                         }}
-                        className="space-y-3"
+                        className="border-b border-border/60"
                       >
-                        <div className="flex items-center justify-between">
-                          <p className="font-general text-sm uppercase tracking-widest text-foreground">
-                            {link.label}
-                          </p>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setMobileOpen((current) =>
+                              current === link.label ? null : link.label,
+                            )
+                          }
+                          className="flex w-full items-center justify-between py-4 text-left font-general text-sm uppercase tracking-widest text-foreground"
+                        >
+                          {link.label}
 
-                          <ChevronDown className="size-4 text-steel-red" />
-                        </div>
+                          <motion.span
+                            animate={{ rotate: open ? 180 : 0 }}
+                            transition={{
+                              duration: 0.25,
+                              ease: [0.16, 1, 0.3, 1],
+                            }}
+                          >
+                            <ChevronDown className="size-4 text-steel-red" />
+                          </motion.span>
+                        </button>
 
-                        <div className="space-y-2 border-l border-border pl-4">
-                          {link.children.map((child, index) => (
+                        <AnimatePresence>
+                          {open && (
                             <motion.div
-                              key={child.href}
-                              initial={{ opacity: 0, x: 16 }}
-                              animate={{ opacity: 1, x: 0 }}
+                              key="submenu"
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
                               transition={{
                                 duration: 0.3,
-                                delay: index * 0.06,
+                                ease: [0.16, 1, 0.3, 1],
                               }}
-                              whileHover={{ x: 4 }}
-                              whileTap={{ scale: 0.98 }}
+                              className="overflow-hidden"
                             >
-                              <Link
-                                href={child.href}
-                                className="group flex items-center justify-between font-general text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
-                              >
-                                <span>{child.label}</span>
+                              <div className="space-y-1 border-l border-border pb-4 pl-4">
+                                {link.children.map((child) => (
+                                  <Link
+                                    key={child.href}
+                                    href={child.href}
+                                    className="group flex flex-col py-2"
+                                  >
+                                    <span className="flex items-center justify-between font-general text-sm uppercase tracking-widest text-muted-foreground transition-colors group-hover:text-foreground">
+                                      {child.label}
 
-                                <ArrowRight className="size-3 text-steel-red opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
-                              </Link>
+                                      <ArrowRight className="size-3 text-steel-red opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
+                                    </span>
 
-                              <p className="mt-1 font-general text-xs text-muted-foreground">
-                                {child.description}
-                              </p>
+                                    {child.description && (
+                                      <span className="mt-1 font-general text-xs normal-case tracking-normal text-muted-foreground">
+                                        {child.description}
+                                      </span>
+                                    )}
+                                  </Link>
+                                ))}
+                              </div>
                             </motion.div>
-                          ))}
-                        </div>
+                          )}
+                        </AnimatePresence>
                       </motion.div>
                     );
                   }
@@ -409,14 +434,15 @@ export default function Header() {
                         duration: 0.35,
                         ease: [0.16, 1, 0.3, 1],
                       }}
-                      whileHover={{ x: 4 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="border-b border-border/60"
                     >
                       <Link
                         href={link.href}
-                        className="font-general text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                        className="group flex items-center justify-between py-4 font-general text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
                       >
                         {link.label}
+
+                        <ArrowRight className="size-3 text-steel-red opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
                       </Link>
                     </motion.div>
                   );
@@ -425,10 +451,13 @@ export default function Header() {
 
               <Separator className="my-6 bg-border" />
 
-              <div className="space-y-4">
-                <p className="font-mono text-xs text-muted-foreground">
+              <div className="space-y-4 px-5">
+                <a
+                  href="tel:+16477447212"
+                  className="block font-mono text-xs tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+                >
                   1-647-744-7212
-                </p>
+                </a>
 
                 <Button
                   asChild
@@ -437,16 +466,38 @@ export default function Header() {
                   <Link href="/contact">Free Estimate</Link>
                 </Button>
 
-                <AnimatedThemeToggler
-                  variant="hexagon"
-                  duration={600}
-                  fromCenter
-                />
+                <div className="flex items-center justify-between border border-border px-4 py-3">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                    Appearance
+                  </span>
+
+                  <AnimatedThemeToggler
+                    variant="hexagon"
+                    duration={600}
+                    fromCenter
+                    className="inline-flex size-9 items-center justify-center rounded-none border border-border text-foreground transition-colors hover:bg-muted [&_svg]:size-4"
+                  />
+                </div>
               </div>
             </SheetContent>
           </Sheet>
         </motion.div>
       </nav>
+
+      {/* Dropdown backdrop — dims/blurs the page behind an open desktop menu */}
+      <AnimatePresence>
+        {resourcesOpen && (
+          <motion.div
+            key="nav-dropdown-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => setResourcesOpen(null)}
+            className="fixed inset-x-0 bottom-0 top-16 z-40 hidden bg-foreground/10 backdrop-blur-sm lg:block"
+          />
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
