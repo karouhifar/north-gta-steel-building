@@ -1,48 +1,26 @@
-import fs from "node:fs";
-
-import path from "node:path";
-
+import { createClient } from "@supabase/supabase-js";
 import { ai, EMBEDDING_MODEL, EMBEDDING_DIM } from "./gemini";
 import { Chunk } from "./chunking";
 
-interface StoredChunk extends Chunk {
-  embedding: number[];
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!, // server-side key, never expose to client
+);
+
+export interface RetrievedChunk {
+  id: number;
+  content: string;
+  metadata: Record<string, unknown>;
+  score: number;
 }
 
-let store: StoredChunk[] | null = null;
-
-function loadStore(): StoredChunk[] {
-  if (!store) {
-    const p = path.join(process.cwd(), "data", "vector-store.json");
-
-    store = JSON.parse(fs.readFileSync(p, "utf-8"));
-  }
-
-  return store!;
-}
-
-function cosineSim(a: number[], b: number[]): number {
-  let dot = 0,
-    na = 0,
-    nb = 0;
-
-  for (let i = 0; i < a.length; i++) {
-    dot += a[i] * b[i];
-
-    na += a[i] * a[i];
-
-    nb += b[i] * b[i];
-  }
-
-  return dot / (Math.sqrt(na) * Math.sqrt(nb));
-}
-
-export async function retrieve(query: string, topK = 5) {
+export async function retrieve(
+  query: string,
+  topK = 10,
+): Promise<RetrievedChunk[]> {
   const res = await ai.models.embedContent({
     model: EMBEDDING_MODEL,
-
     contents: query,
-
     config: {
       taskType: "RETRIEVAL_QUERY",
       outputDimensionality: EMBEDDING_DIM,
@@ -51,10 +29,12 @@ export async function retrieve(query: string, topK = 5) {
 
   const qVec = res.embeddings![0].values!;
 
-  return loadStore()
-    .map((c) => ({ ...c, score: cosineSim(qVec, c.embedding) }))
+  const { data, error } = await supabase.rpc("match_documents", {
+    query_embedding: qVec,
+    match_threshold: 0.78,
+    match_count: topK,
+  });
 
-    .sort((a, b) => b.score - a.score)
-
-    .slice(0, topK);
+  if (error) throw error;
+  return data as RetrievedChunk[];
 }
