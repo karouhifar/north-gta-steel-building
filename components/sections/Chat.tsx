@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import imgBot from "@/public/images/NGS_Bot.png";
+import imgBot from "@/public/images/ngs_bot.png";
 import { Send, Loader2, Maximize2, Minimize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
