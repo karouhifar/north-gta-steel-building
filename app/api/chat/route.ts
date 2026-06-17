@@ -52,11 +52,12 @@ export async function POST(req: NextRequest) {
   const hits = await retrieve(question, 5);
 
   const context = hits
-    .map(
-      (h, i) =>
-        `--- Source ${i + 1}: ${h.source}${h.section ? ` §${h.section}` : ""} (relevance ${h.score.toFixed(2)}) ---\n${h.text}`,
-    )
+    .map((h, i) => {
+      const source = (h.metadata.source as string) ?? "unknown";
+      const section = h.metadata.section as string | undefined;
 
+      return `--- Source ${i + 1}: ${source}${section ? ` §${section}` : ""} (relevance ${h.score.toFixed(2)}) ---\n${h.content}`;
+    })
     .join("\n\n");
 
   // 2) Build conversation history + grounded final turn
