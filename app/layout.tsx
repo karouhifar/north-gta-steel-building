@@ -128,7 +128,7 @@ export default function RootLayout({
         <JsonLd data={websiteSchema()} />
         <Header />
         <div className="pt-16">{children}</div>
-        <ChatWidget />
+        {/* <ChatWidget /> */}
         <Footer />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
