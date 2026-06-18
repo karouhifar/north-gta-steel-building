@@ -15,8 +15,8 @@ const CONTACT_ITEMS = [
   {
     icon: Mail,
     label: "Email",
-    value: "ngsbuildings@gmail.com",
-    href: "mailto:ngsbuildings@gmail.com",
+    value: "info@ngsbuildings.ca",
+    href: "mailto:info@ngsbuildings.ca",
     external: false,
   },
   {

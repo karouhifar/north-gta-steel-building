@@ -22,7 +22,7 @@ export const LANG = "en-CA";
 // NAP — sourced from the live site (Footer / ContactHero), not invented.
 export const PHONE = "+16477447212";
 export const PHONE_DISPLAY = "(647) 744-7212";
-export const EMAIL = "ngsbuildings@gmail.com";
+export const EMAIL = "info@ngsbuildings.ca";
 export const REGION = "ON";
 export const COUNTRY = "CA";
 

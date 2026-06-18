@@ -46,7 +46,7 @@ const contactItems = [
   },
   {
     icon: Mail,
-    label: "ngsbuildings@gmail.com",
+    label: "info@ngsbuildings.ca",
   },
   {
     icon: MapPin,
@@ -189,7 +189,10 @@ export default function Footer() {
 
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             {areaLinks.map((city) => (
-              <FooterLink key={city.slug} href={`/steel-buildings/${city.slug}`}>
+              <FooterLink
+                key={city.slug}
+                href={`/steel-buildings/${city.slug}`}
+              >
                 Steel Buildings {city.name}
               </FooterLink>
             ))}

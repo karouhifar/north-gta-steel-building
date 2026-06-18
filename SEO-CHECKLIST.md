@@ -30,7 +30,7 @@ What the code now handles automatically, and the off-site actions only a human c
 ## 3. Google Business Profile (biggest local-SEO lever)
 
 1. Create a profile at https://business.google.com as a **service-area business** (hide street address).
-2. Use the exact NAP from the site: **North GTA Steel** / **(647) 744-7212** / **ngsbuildings@gmail.com**.
+2. Use the exact NAP from the site: **North GTA Steel** / **(647) 744-7212** / **info@ngsbuildings.ca**.
 3. Add service areas (Toronto, Vaughan, Mississauga, Brampton, Richmond Hill, Oakville, Whitby, Caledon…), category "Construction company" / "Building materials supplier", photos of completed builds, and the website URL.
 4. Once live, add the profile URL to `SOCIAL_LINKS` in `lib/site.ts` (it feeds Organization `sameAs` schema automatically).
 
