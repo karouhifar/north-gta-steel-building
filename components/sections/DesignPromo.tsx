@@ -16,7 +16,7 @@ export default function DesignPromo() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (sessionStorage.getItem(STORAGE_KEY) === "1") return;
+    if (localStorage.getItem(STORAGE_KEY) === "1") return;
 
     const timer = window.setTimeout(() => setOpen(true), DELAY_MS);
     return () => window.clearTimeout(timer);
@@ -25,7 +25,7 @@ export default function DesignPromo() {
   function dismiss() {
     setOpen(false);
     try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
+      localStorage.setItem(STORAGE_KEY, "1");
     } catch {
       /* storage may be unavailable (private mode) */
     }
