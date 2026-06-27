@@ -302,6 +302,18 @@ export default function Header() {
             </Button>
           </motion.div>
 
+          <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.96 }}>
+            <Button
+              asChild
+              variant="secondary"
+              className="rounded-none px-6 py-3 text-xs font-medium uppercase tracking-widest"
+            >
+              <Link target="_blank" href="https://design.northgtasteel.ca/">
+                3D Design
+              </Link>
+            </Button>
+          </motion.div>
+
           <AnimatedThemeToggler variant="hexagon" duration={600} fromCenter />
         </motion.div>
 

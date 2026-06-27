@@ -18,6 +18,7 @@ import {
   VENDOR_URL,
 } from "@/lib/site";
 import ChatWidget from "@/components/sections/ChatWidget";
+import DesignPromo from "@/components/sections/DesignPromo";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -129,6 +130,7 @@ export default function RootLayout({
         <Header />
         <div className="pt-16">{children}</div>
         {/* <ChatWidget /> */}
+        <DesignPromo />
         <Footer />
         {process.env.NEXT_PUBLIC_GA_ID && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
