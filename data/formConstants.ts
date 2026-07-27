@@ -115,9 +115,29 @@ export const TIMELINE_OPTIONS: {
 ];
 
 export const STEPS = [
-  { id: 1, label: "Building" },
-  { id: 2, label: "Size" },
-  { id: 3, label: "Location" },
-  { id: 4, label: "Timeline" },
-  { id: 5, label: "Contact" },
+  {
+    id: 1,
+    label: "Building",
+    question: "What type of building do you need?",
+  },
+  {
+    id: 2,
+    label: "Size",
+    question: "What are the dimensions of your building?",
+  },
+  {
+    id: 3,
+    label: "Location",
+    question: "Where will your building be located?",
+  },
+  {
+    id: 4,
+    label: "Timeline",
+    question: "When do you plan to start your project?",
+  },
+  {
+    id: 5,
+    label: "Contact",
+    question: "How can we reach you?",
+  },
 ] as const;
