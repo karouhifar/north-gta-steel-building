@@ -204,19 +204,7 @@ export default function Project() {
           }}
           className="mt-10 flex justify-center sm:mt-12"
         >
-          <Button
-            asChild
-            variant="outline"
-            className="h-auto w-full rounded-none border-steel-mid bg-transparent px-8 py-4 font-general text-xs font-medium uppercase tracking-widest text-foreground hover:border-steel-red hover:bg-transparent hover:text-steel-red sm:w-auto sm:px-10"
-          >
-            <Link
-              href="#all-projects"
-              className="flex items-center justify-center"
-            >
-              View Full Archive
-              <ArrowRight className="ml-3 size-4" />
-            </Link>
-          </Button>
+
         </motion.div>
       </div>
     </section>

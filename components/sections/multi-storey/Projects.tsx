@@ -159,17 +159,6 @@ export function Projects() {
         <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
           14 multi-storey buildings completed · 2018–2025
         </p>
-        <Button
-          asChild
-          variant="ghost"
-          size="sm"
-          className="rounded-none px-0 font-mono text-[11px] uppercase tracking-[0.16em] text-steel-red hover:bg-transparent hover:text-steel-darkred"
-        >
-          <Link href="#">
-            View Full Archive
-            <ArrowRight className="ml-2 size-3.5" />
-          </Link>
-        </Button>
       </motion.div>
     </div>
   );

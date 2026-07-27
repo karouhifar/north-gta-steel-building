@@ -236,7 +236,7 @@ export default function About() {
                       fill
                       priority
                       sizes="(max-width: 1024px) 100vw, 40vw"
-                      className="object-cover brightness-75 contrast-125 grayscale transition-all duration-700 group-hover:scale-105 group-hover:brightness-90"
+                      className="object-cover brightness-75  transition-all duration-700 group-hover:scale-105 group-hover:brightness-90"
                     />
 
                     <div className="absolute inset-0 bg-gradient-to-t from-steel-black/90 via-steel-black/20 to-transparent" />
