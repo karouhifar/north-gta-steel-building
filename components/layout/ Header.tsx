@@ -74,6 +74,16 @@ const navLinks: NavLink[] = [
         href: "/blogs",
         description: "Latest news and updates from our team",
       },
+      {
+        label: "NGS Building Systems",
+        href: "https://d32bczqlkgra6r.cloudfront.net/pdf/Brochure.pdf",
+        description: "Complete Brochure from start to finish",
+      },
+      {
+        label: "NGS Color Selection Guide",
+        href: "https://d32bczqlkgra6r.cloudfront.net/pdf/Color_Chart_NorthGTA.pdf",
+        description: "Features and benefits of our color options",
+      },
     ],
   },
   {
@@ -240,6 +250,7 @@ export default function Header() {
                             >
                               <Link
                                 href={child.href}
+                                target={child.href.startsWith("http") ? "_blank" : "_self"}
                                 className="group/item flex items-center justify-between border-l-2 border-transparent px-4 py-4 transition-all duration-300 hover:border-steel-red hover:bg-muted hover:pl-5"
                               >
                                 <span>
