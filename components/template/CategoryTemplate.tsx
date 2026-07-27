@@ -44,7 +44,7 @@ export default function CategoryTemplate({
             fill
             priority
             sizes="100vw"
-            className="object-cover opacity-50"
+            className="object-cover"
           />
 
           {/* Theme-aware gradient: heavy on the left for text legibility */}
