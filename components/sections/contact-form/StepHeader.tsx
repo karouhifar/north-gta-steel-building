@@ -1,12 +1,10 @@
 import { cn } from "@/lib/utils";
 
 export function StepHeader({
-  step,
   title,
   subtitle,
   className,
 }: {
-  step: number;
   title: string;
   subtitle?: string;
   className?: string;

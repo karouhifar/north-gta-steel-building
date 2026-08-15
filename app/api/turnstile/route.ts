@@ -1,12 +1,11 @@
-"use server";
-import { quoteFormSchema } from "@/lib/schema";
 // app/api/turnstile/route.ts
-/* This is a simple API route that verifies the Turnstile token sent from the client. 
+/* This is a simple API route that verifies the Turnstile token sent from the client.
    In a real application, you would want to add additional checks, such as rate limiting,
    logging, and possibly more detailed error handling based on the "error-codes" returned by the API. */
 import { NextResponse } from "next/server";
-import { useEffect } from "react";
 import { z } from "zod";
+
+import { quoteFormSchema } from "@/lib/schema";
 
 const bodySchema = quoteFormSchema.extend({
   token: z.string().min(1),
@@ -32,21 +31,39 @@ export async function GET() {
   const res = await fetch(`${process.env.BUN_API_URL}/health`, {
     method: "GET",
     keepalive: true,
-  }).catch(() => {});
-  const isHealthy = res?.ok;
-  if (!isHealthy) {
-    return NextResponse.json({ error: "Service unhealthy" }, { status: 503 });
+  }).catch(() => null);
+
+  if (!res?.ok) {
+    return NextResponse.json(
+      { ok: false, error: "Service unhealthy" },
+      { status: 503 },
+    );
   }
+
   const json = await res.json().catch(() => null);
-  return NextResponse.json({ data: json });
+  return NextResponse.json({ ok: true, data: json });
 }
 
 export async function POST(request: Request) {
+  const missingEnv = [
+    "TURNSTILE_SECRET_KEY",
+    "BUN_API_URL",
+    "INTERNAL_API_SECRET",
+  ].filter((key) => !process.env[key]);
+
+  if (missingEnv.length > 0) {
+    console.error(`Quote route misconfigured, missing: ${missingEnv.join(", ")}`);
+    return NextResponse.json(
+      { ok: false, error: "Internal server error" },
+      { status: 500 },
+    );
+  }
+
   // Validate request body against schema
   const parsed = bodySchema.safeParse(await request.json());
   if (!parsed.success) {
     return NextResponse.json(
-      { ok: false, errors: "Invalid request data" },
+      { ok: false, error: "Invalid request data" },
       { status: 400 },
     );
   }
@@ -58,11 +75,13 @@ export async function POST(request: Request) {
     const { token, ...data } = parsed.data;
     const res = await verifyTurnstileToken(token, ip);
 
-    if (!res.success)
+    if (!res.success) {
+      console.warn("Turnstile verification failed:", res["error-codes"]);
       return NextResponse.json(
-        { error: "Verification failed" },
+        { ok: false, error: "Verification failed" },
         { status: 403 },
       );
+    }
 
     // Forward to Bun service Email automation (or handle as needed)
     const forwardRes = await fetch(
@@ -71,7 +90,7 @@ export async function POST(request: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-internal-secret": process.env.INTERNAL_API_SECRET!, // shared secret
+          "x-internal-secret": process.env.INTERNAL_API_SECRET as string, // shared secret
         },
         body: JSON.stringify({
           ...data,
@@ -82,11 +101,18 @@ export async function POST(request: Request) {
     );
 
     if (!forwardRes.ok) {
-      return NextResponse.json({ error: "Processing failed" }, { status: 502 });
+      console.error(
+        `Quote forward failed: ${forwardRes.status} ${forwardRes.statusText}`,
+      );
+      return NextResponse.json(
+        { ok: false, error: "Processing failed" },
+        { status: 502 },
+      );
     }
   } catch (err) {
+    console.error("Quote route error:", err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { ok: false, error: "Internal server error" },
       { status: 500 },
     );
   }

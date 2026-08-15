@@ -18,7 +18,6 @@ export function StepTimeline() {
   return (
     <div>
       <StepHeader
-        step={4}
         title="When do you need it?"
         subtitle="No pressure — pick whatever's closest."
       />

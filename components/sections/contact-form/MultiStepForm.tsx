@@ -57,14 +57,21 @@ export function QuoteForm() {
     defaultValues: DEFAULT_VALUES,
   });
 
+  // Warm the route one step early so the connection is open by the time we submit.
   useEffect(() => {
-    if (step === 5 && !warmedRef.current) {
+    if (step === TOTAL - 1 && !warmedRef.current) {
       warmedRef.current = true;
       fetch("/api/turnstile", { mode: "no-cors", keepalive: true }).catch(
         () => {},
       );
     }
   }, [step]);
+
+  // Turnstile tokens are single use — always drop the consumed one with the widget.
+  const resetTurnstile = useCallback(() => {
+    setToken("");
+    turnstileRef.current?.reset();
+  }, []);
 
   const next = async () => {
     const valid = await methods.trigger(STEP_FIELDS[step], {
@@ -86,17 +93,16 @@ export function QuoteForm() {
   };
 
   const onSubmit = methods.handleSubmit(async (values) => {
-    setSubmitting(true);
-
     if (!token) {
       methods.setError("root", {
         message: "Please complete the security check",
       });
-      setSubmitting(false);
       return;
     }
+
+    setSubmitting(true);
+
     try {
-      // Replace with real submission (API route, server action, etc.)
       const res = await fetch("/api/turnstile", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -104,20 +110,28 @@ export function QuoteForm() {
       });
 
       if (!res.ok) {
-        turnstileRef.current?.reset();
-        throw new Error("Failed to submit");
+        resetTurnstile();
+        methods.setError("root", {
+          message:
+            res.status === 403
+              ? "Security check failed. Please complete the challenge again."
+              : "Something went wrong. Please try again later.",
+        });
+        return;
       }
+
       methods.reset(DEFAULT_VALUES);
-      turnstileRef.current?.reset();
+      resetTurnstile();
       setDone(true);
-      setSubmitting(false);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err) {
+      console.error("Quote submission failed:", err);
+      resetTurnstile();
       methods.setError("root", {
         message: "Something went wrong. Please try again later.",
       });
+    } finally {
       setSubmitting(false);
-      turnstileRef.current?.reset();
     }
   });
   const startOver = useCallback(() => {

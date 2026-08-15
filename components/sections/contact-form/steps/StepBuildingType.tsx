@@ -2,7 +2,6 @@
 
 import { useFormContext } from "react-hook-form";
 import { motion } from "motion/react";
-import { Check } from "lucide-react";
 
 import { QuoteFormValues } from "@/lib/schema";
 import { BUILDING_TYPES } from "@/data/formConstants";
@@ -20,7 +19,6 @@ export function StepBuildingType() {
   return (
     <div>
       <StepHeader
-        step={1}
         title="What type of building?"
         subtitle="Pick the closest match — we'll dial in the details later."
       />
@@ -54,8 +52,6 @@ export function StepBuildingType() {
                   : "border-border",
               )}
             >
-              {/* Corner tick */}
-
               <span
                 className={cn(
                   "flex h-12 w-12 shrink-0 items-center justify-center transition-colors",

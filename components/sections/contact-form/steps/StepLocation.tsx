@@ -28,7 +28,6 @@ export function StepLocation() {
   return (
     <div>
       <StepHeader
-        step={3}
         title="Where is the project?"
         subtitle="We deliver across Ontario — region helps us plan logistics."
       />

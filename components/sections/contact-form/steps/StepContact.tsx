@@ -26,7 +26,6 @@ export function StepContact() {
   return (
     <div>
       <StepHeader
-        step={5}
         title="Where should we send your quote?"
         subtitle="One of our team will reach out within 1 business day."
       />

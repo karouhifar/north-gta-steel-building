@@ -70,7 +70,6 @@ export function StepSize() {
   return (
     <div>
       <StepHeader
-        step={2}
         title="What size are you thinking?"
         subtitle="Rough estimates are fine — we'll confirm with you."
       />
