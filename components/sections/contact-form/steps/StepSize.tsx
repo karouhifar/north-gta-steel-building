@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useFormContext } from "react-hook-form";
 import { motion } from "motion/react";
 import { Input } from "@/components/ui/input";
@@ -73,6 +74,22 @@ export function StepSize() {
         title="What size are you thinking?"
         subtitle="Rough estimates are fine — we'll confirm with you."
       />
+
+      {/* Reference diagram — shows which dimension is which */}
+      <figure className="mb-7 border-2 border-border bg-secondary/40 p-4">
+        <Image
+          src="/images/dimensions-building.webp"
+          alt="Steel building diagram showing height measured at the eave, length along the sidewall, and width across the endwall"
+          width={1402}
+          height={768}
+          sizes="(max-width: 640px) 60vw, 320px"
+          className="mx-auto h-auto w-full max-w-xs"
+        />
+
+        <figcaption className="mt-3 text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+          Height is measured at the eave · width runs across the endwall
+        </figcaption>
+      </figure>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
         <DimensionField name="width" label="Width" placeholder="e.g. 40" />

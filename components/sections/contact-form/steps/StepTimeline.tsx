@@ -56,7 +56,9 @@ export function StepTimeline() {
               <span
                 className={cn(
                   "font-mono text-[10px] uppercase tracking-widest",
-                  isSelected ? "text-primary-foreground/80" : "text-muted-foreground",
+                  isSelected
+                    ? "text-primary-foreground/80"
+                    : "text-muted-foreground",
                 )}
               >
                 {opt.sub}

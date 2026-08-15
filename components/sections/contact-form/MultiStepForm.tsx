@@ -16,6 +16,8 @@ import {
 import { STEPS } from "@/data/formConstants";
 import { StepBuildingType } from "./steps/StepBuildingType";
 import { StepSize } from "./steps/StepSize";
+import { StepRoof } from "./steps/StepRoof";
+import { StepOpenings } from "./steps/StepOpenings";
 import { StepLocation } from "./steps/StepLocation";
 import { StepTimeline } from "./steps/StepTimeline";
 import { StepContact } from "./steps/StepContact";
@@ -30,6 +32,23 @@ const DEFAULT_VALUES: QuoteFormInput = {
   width: "" as unknown as number,
   length: "" as unknown as number,
   height: "" as unknown as number,
+  roofShape: undefined as never,
+  roofPitch: undefined as never,
+  roofPanel: undefined as never,
+  roofFinish: undefined as never,
+  gutters: undefined as never,
+  roofColor: "",
+  wallColor: "",
+  panelGauge: undefined,
+  insulationRoof: "",
+  insulationWall: "",
+  linerPanel: undefined,
+  layoutSketch: undefined as never,
+  overheadDoors: 0,
+  manDoors: 0,
+  windows: 0,
+  louvers: 0,
+  openingNotes: "",
   region: "",
   city: "",
   postalCode: "",
@@ -91,6 +110,16 @@ export function QuoteForm() {
       setStep((s) => s - 1);
     }
   };
+
+  // Breadcrumb jumps — backwards only, so no step skips its validation gate.
+  const goToStep = useCallback(
+    (target: number) => {
+      if (target < 1 || target >= step) return;
+      setDirection(-1);
+      setStep(target);
+    },
+    [step],
+  );
 
   const onSubmit = methods.handleSubmit(async (values) => {
     if (!token) {
@@ -154,7 +183,7 @@ export function QuoteForm() {
   return (
     <FormProvider {...methods}>
       <div className="mx-auto w-full max-w-4xl">
-        <ProgressBar currentStep={step} />
+        <ProgressBar currentStep={step} onStepSelect={goToStep} />
 
         <form onSubmit={onSubmit}>
           <div className="relative overflow-hidden">
@@ -170,9 +199,11 @@ export function QuoteForm() {
               >
                 {step === 1 && <StepBuildingType />}
                 {step === 2 && <StepSize />}
-                {step === 3 && <StepLocation />}
-                {step === 4 && <StepTimeline />}
-                {step === 5 && (
+                {step === 3 && <StepRoof />}
+                {step === 4 && <StepOpenings />}
+                {step === 5 && <StepLocation />}
+                {step === 6 && <StepTimeline />}
+                {step === TOTAL && (
                   <>
                     <StepContact />
                     <div className="my-5 h-px w-full bg-border" />

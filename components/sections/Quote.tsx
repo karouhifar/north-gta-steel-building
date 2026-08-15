@@ -9,10 +9,12 @@ import {
   CalendarDays,
   ChevronRight,
   Clock,
+  DoorOpen,
   FileText,
   MapPin,
   Phone,
   Ruler,
+  Triangle,
   UserRound,
   Warehouse,
   type LucideIcon,
@@ -29,9 +31,11 @@ import { QuoteUI } from "../ui/quoteUI";
 const STEP_ICONS: Record<number, LucideIcon> = {
   1: Warehouse,
   2: Ruler,
-  3: MapPin,
-  4: CalendarDays,
-  5: UserRound,
+  3: Triangle,
+  4: DoorOpen,
+  5: MapPin,
+  6: CalendarDays,
+  7: UserRound,
 };
 
 export default function QuoteSection() {
