@@ -108,15 +108,13 @@ export function ContactHero() {
                   {c.label}
                 </div>
                 <div className="mt-1 font-clash text-base font-semibold leading-snug sm:text-lg">
-                  <p>{c.value}</p>
-                  <p>
-                    {c.valueOptional && (
-                      <>
-                        <br />
-                        {c.valueOptional}
-                      </>
-                    )}
-                  </p>
+                  {c.value}
+                  {c.valueOptional && (
+                    <>
+                      <br />
+                      {c.valueOptional}
+                    </>
+                  )}
                 </div>
               </div>
               {c.href && (
