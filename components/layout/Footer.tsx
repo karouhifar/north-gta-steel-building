@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Smartphone } from "lucide-react";
 import { motion } from "motion/react";
 
 import { VENDOR_NAME, VENDOR_URL } from "@/lib/site";
@@ -43,6 +43,10 @@ const contactItems = [
   {
     icon: Phone,
     label: "1-647-744-7212",
+  },
+  {
+    icon: Smartphone,
+    label: "1-416-505-1371",
   },
   {
     icon: Mail,

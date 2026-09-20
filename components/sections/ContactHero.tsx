@@ -9,6 +9,7 @@ const CONTACT_ITEMS = [
     icon: Phone,
     label: "Phone",
     value: "(647) 744-7212",
+    valueOptional: "(416) 505-1371",
     href: "tel:+16477447212",
     external: false,
   },
@@ -107,7 +108,15 @@ export function ContactHero() {
                   {c.label}
                 </div>
                 <div className="mt-1 font-clash text-base font-semibold leading-snug sm:text-lg">
-                  {c.value}
+                  <p>{c.value}</p>
+                  <p>
+                    {c.valueOptional && (
+                      <>
+                        <br />
+                        {c.valueOptional}
+                      </>
+                    )}
+                  </p>
                 </div>
               </div>
               {c.href && (

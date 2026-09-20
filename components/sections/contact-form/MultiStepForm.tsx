@@ -122,6 +122,7 @@ export function QuoteForm() {
   );
 
   const onSubmit = methods.handleSubmit(async (values) => {
+    console.log("Submitting quote form:", values, "with token:", token);
     if (!token) {
       methods.setError("root", {
         message: "Please complete the security check",
